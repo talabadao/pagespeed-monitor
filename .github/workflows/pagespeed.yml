@@ -27,14 +27,14 @@ jobs:
         env:
           PSI_API_KEY: ${{ secrets.PSI_API_KEY }}
         run: |
-          python pagespeed_checker.py \
+          python "Page Speed Insight/pagespeed_checker.py" \
             --key "$PSI_API_KEY" \
-            --urls-file urls.txt \
+            --urls-file "Page Speed Insight/urls.txt" \
             --strategy both
 
       - name: Dọn raw JSON cũ hơn 7 ngày
         run: |
-          find reports/raw -name "*.json" -mtime +7 -delete 2>/dev/null || true
+          find "Page Speed Insight/reports/raw" -name "*.json" -mtime +7 -delete 2>/dev/null || true
 
       - name: Commit & push kết quả
         run: |
