@@ -1,0 +1,14 @@
+# Danh sách URLs cần tracking PageSpeed
+# Dòng bắt đầu bằng # là comment, sẽ bị bỏ qua
+
+# Homepage
+https://samuelw86.sg-host.com/
+
+# Product
+https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/
+
+# Category
+https://samuelw86.sg-host.com/quoc-gia/phap/
+
+# Blog
+https://samuelw86.sg-host.com/cac-vung-ruou-vang-phap-noi-tieng-nhat/

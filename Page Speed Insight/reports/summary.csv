@@ -1,0 +1,5 @@
+timestamp,url,strategy,performance_score,fcp_ms,lcp_ms,cls,tbt_ms,speed_index_ms,tti_ms,field_fcp_ms,field_lcp_ms,field_cls,field_inp_ms,field_ttfb_ms,status
+20260601T091552Z,https://samuelw86.sg-host.com/,mobile,,,,,,,,,,,,,error: <urlopen error Tunnel connection failed: 403 Forbidden>
+20260601T091552Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,mobile,,,,,,,,,,,,,error: <urlopen error Tunnel connection failed: 403 Forbidden>
+20260601T091552Z,https://samuelw86.sg-host.com/quoc-gia/phap/,mobile,,,,,,,,,,,,,error: <urlopen error Tunnel connection failed: 403 Forbidden>
+20260601T091552Z,https://samuelw86.sg-host.com/cac-vung-ruou-vang-phap-noi-tieng-nhat/,mobile,,,,,,,,,,,,,error: <urlopen error Tunnel connection failed: 403 Forbidden>
