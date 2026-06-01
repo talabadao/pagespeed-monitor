@@ -1,14 +1,11 @@
-# Danh sách URLs cần tracking PageSpeed
-# Dòng bắt đầu bằng # là comment, sẽ bị bỏ qua
+# ── PRODUCTION: wewine.vn ──────────────────────────────────
+https://wewine.vn/
+https://wewine.vn/cac-vung-ruou-vang-phap-noi-tieng-nhat/
+https://wewine.vn/quoc-gia/phap/
+https://wewine.vn/michele-chiarlo-montemareto-nizza/
 
-# Homepage
+# ── DEMO: samuelw86.sg-host.com ────────────────────────────
 https://samuelw86.sg-host.com/
-
-# Product
-https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/
-
-# Category
-https://samuelw86.sg-host.com/quoc-gia/phap/
-
-# Blog
 https://samuelw86.sg-host.com/cac-vung-ruou-vang-phap-noi-tieng-nhat/
+https://samuelw86.sg-host.com/quoc-gia/phap/
+https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/
