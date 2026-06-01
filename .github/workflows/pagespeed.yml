@@ -1,29 +1,29 @@
-name: 📊 PageSpeed Hourly Monitor
+name: PageSpeed Hourly Monitor
 
 on:
   schedule:
-    - cron: '0 * * * *'   # Chạy đầu mỗi giờ (UTC)
-  workflow_dispatch:        # Cho phép chạy thủ công để test
+    - cron: '5 * * * *'
+  workflow_dispatch:
 
 jobs:
   pagespeed-check:
     runs-on: ubuntu-latest
-    timeout-minutes: 30     # Script có retry 3x × 15s delay, đảm bảo đủ thời gian
+    timeout-minutes: 30
     permissions:
-      contents: write       # Cần quyền push kết quả về repo
+      contents: write
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0    # Cần full history để git push
+          fetch-depth: 0
 
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Run PageSpeed check (mobile + desktop)
+      - name: Run PageSpeed check
         env:
           PSI_API_KEY: ${{ secrets.PSI_API_KEY }}
         run: |
@@ -32,19 +32,19 @@ jobs:
             --urls-file "Page Speed Insight/urls.txt" \
             --strategy both
 
-      - name: Dọn raw JSON cũ hơn 7 ngày
+      - name: Clean raw JSON older than 7 days
         run: |
           find "Page Speed Insight/reports/raw" -name "*.json" -mtime +7 -delete 2>/dev/null || true
 
-      - name: Commit & push kết quả
+      - name: Commit and push results
         run: |
           git config user.email "pagespeed-bot@github-actions"
           git config user.name "PageSpeed Bot"
           git add "Page Speed Insight/reports/"
           if git diff --staged --quiet; then
-            echo "Không có thay đổi"
+            echo "No changes"
           else
-            git commit -m "PSI check $(date -u '+%Y-%m-%d %H:00 UTC')"
+            git commit -m "PSI check $(date -u '+%Y-%m-%d %H:05 UTC')"
             git pull --rebase origin main
             git push
           fi
