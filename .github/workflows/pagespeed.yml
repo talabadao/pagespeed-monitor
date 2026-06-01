@@ -1,38 +1,50 @@
-name: PageSpeed Hourly Monitor
+name: 📊 PageSpeed Hourly Monitor
 
 on:
   schedule:
-    - cron: '0 * * * *'
-  workflow_dispatch:
+    - cron: '0 * * * *'   # Chạy đầu mỗi giờ (UTC)
+  workflow_dispatch:        # Cho phép chạy thủ công để test
 
 jobs:
   pagespeed-check:
     runs-on: ubuntu-latest
+    timeout-minutes: 30     # Script có retry 3x × 15s delay, đảm bảo đủ thời gian
     permissions:
-      contents: write
+      contents: write       # Cần quyền push kết quả về repo
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0    # Cần full history để git push
 
-      - uses: actions/setup-python@v5
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Run PageSpeed check
+      - name: Run PageSpeed check (mobile + desktop)
         env:
           PSI_API_KEY: ${{ secrets.PSI_API_KEY }}
         run: |
-          python "Page Speed Insight/pagespeed_checker.py" \
+          python pagespeed_checker.py \
             --key "$PSI_API_KEY" \
-            --urls-file "Page Speed Insight/urls.txt" \
+            --urls-file urls.txt \
             --strategy both
 
-      - name: Xoa raw JSON cu hon 7 ngay
-        run: find "Page Speed Insight/reports/raw" -name "*.json" -mtime +7 -delete 2>/dev/null || true
+      - name: Dọn raw JSON cũ hơn 7 ngày
+        run: |
+          find reports/raw -name "*.json" -mtime +7 -delete 2>/dev/null || true
 
-      - name: Commit va push ket qua
+      - name: Commit & push kết quả
         run: |
           git config user.email "pagespeed-bot@github-actions"
           git config user.name "PageSpeed Bot"
           git add "Page Speed Insight/reports/"
-          git diff --staged --quiet && echo "No changes" || (git commit -m "PSI check $(date -u '+%Y-%m-%d %H:00 UTC')" && git push)
+          if git diff --staged --quiet; then
+            echo "Không có thay đổi"
+          else
+            git commit -m "PSI check $(date -u '+%Y-%m-%d %H:00 UTC')"
+            git pull --rebase origin main
+            git push
+          fi
