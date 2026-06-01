@@ -125,7 +125,7 @@ tr:last-child td{border-bottom:none}
       <button onclick="setStrategy('desktop',this)">Desktop</button>
     </div>
 
-    <div class="sec">So sánh điểm số mới nhất</div>
+    <div class="sec">So sánh điểm số trung bình</div>
     <div class="cmp-grid" id="cmp-grid"></div>
 
     <div class="sec" style="margin-top:28px">Độ ổn định (dựa trên toàn bộ lịch sử)</div>
@@ -219,32 +219,43 @@ function stddev(arr) {
   return Math.sqrt(arr.reduce((a,b)=>a+(b-mean)**2,0)/arr.length);
 }
 
-// ── COMPARISON CARDS ──────────────────────────────────────────
+// ── COMPARISON CARDS (trung bình) ────────────────────────────
+function avgOf(rows, field) {
+  const vals = rows.map(r => parseFloat(r[field])).filter(v => !isNaN(v) && v > 0);
+  return vals.length ? vals.reduce((a,b)=>a+b,0)/vals.length : null;
+}
 function renderCmpGrid(strategy) {
-  const latest = getLatest(strategy);
+  const ok = allData.filter(r => r.strategy===strategy && r.status==="ok");
   document.getElementById("cmp-grid").innerHTML = PAGE_TYPES.map(pt => {
-    const rWe   = latest[pt.we];
-    const rDemo = latest[pt.demo];
-    const sWe   = rWe   ? +rWe.performance_score   : null;
-    const sDemo = rDemo ? +rDemo.performance_score  : null;
-    const weWins  = sWe !== null && sDemo !== null && sWe > sDemo;
-    const demoWins= sWe !== null && sDemo !== null && sDemo > sWe;
+    const rWe   = ok.filter(r => r.url===pt.we);
+    const rDemo = ok.filter(r => r.url===pt.demo);
+    const sWe   = avgOf(rWe,   "performance_score");
+    const sDemo = avgOf(rDemo, "performance_score");
+    const lcpWe   = avgOf(rWe,   "lcp_ms");
+    const lcpDemo = avgOf(rDemo, "lcp_ms");
+    const fcpWe   = avgOf(rWe,   "fcp_ms");
+    const fcpDemo = avgOf(rDemo, "fcp_ms");
+    const nWe   = rWe.length;
+    const nDemo = rDemo.length;
+    const weWins   = sWe!==null && sDemo!==null && sWe > sDemo;
+    const demoWins = sWe!==null && sDemo!==null && sDemo > sWe;
 
-    const row = (site, r, s, wins) => `
+    const row = (site, s, lcp, fcp, n, wins) => `
       <div class="cmp-row">
         <div class="cmp-site ${site.key}">${site.label}</div>
-        <div class="big-score ${scCls(s)}">${s!==null?s:"—"}</div>
+        <div class="big-score ${scCls(s)}">${s!==null ? Math.round(s) : "—"}</div>
         <div class="cmp-meta">
-          <div class="cmp-metric">LCP <span>${fmt(r?.lcp_ms)}</span></div>
-          <div class="cmp-metric">FCP <span>${fmt(r?.fcp_ms)}</span></div>
+          <div class="cmp-metric">LCP <span>${fmt(lcp)}</span></div>
+          <div class="cmp-metric">FCP <span>${fmt(fcp)}</span></div>
+          <div class="cmp-metric" style="color:var(--muted);font-size:10px">${n} mẫu</div>
         </div>
-        ${wins ? '<span class="winner-badge">Tốt hơn</span>' : (s!==null&&!wins&&(weWins||demoWins)?'<span class="loser-badge">Chậm hơn</span>':'')}
+        ${wins ? '<span class="winner-badge">Tốt hơn</span>' : (s!==null && !wins && (weWins||demoWins) ? '<span class="loser-badge">Chậm hơn</span>' : '')}
       </div>`;
 
     return `<div class="cmp-card">
       <div class="cmp-card-title">${pt.label}</div>
-      ${row(WE,   rWe,   sWe,   weWins)}
-      ${row(DEMO, rDemo, sDemo, demoWins)}
+      ${row(WE,   sWe,   lcpWe,   fcpWe,   nWe,   weWins)}
+      ${row(DEMO, sDemo, lcpDemo, fcpDemo, nDemo, demoWins)}
     </div>`;
   }).join("");
 }
