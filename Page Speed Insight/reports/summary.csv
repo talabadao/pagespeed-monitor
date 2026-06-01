@@ -1,24 +1,4 @@
 timestamp,url,strategy,performance_score,fcp_ms,lcp_ms,cls,tbt_ms,speed_index_ms,tti_ms,field_fcp_ms,field_lcp_ms,field_cls,field_inp_ms,field_ttfb_ms,status
-20260601T091552Z,https://samuelw86.sg-host.com/,mobile,,,,,,,,,,,,,error: <urlopen error Tunnel connection failed: 403 Forbidden>
-20260601T091552Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,mobile,,,,,,,,,,,,,error: <urlopen error Tunnel connection failed: 403 Forbidden>
-20260601T091552Z,https://samuelw86.sg-host.com/quoc-gia/phap/,mobile,,,,,,,,,,,,,error: <urlopen error Tunnel connection failed: 403 Forbidden>
-20260601T091552Z,https://samuelw86.sg-host.com/cac-vung-ruou-vang-phap-noi-tieng-nhat/,mobile,,,,,,,,,,,,,error: <urlopen error Tunnel connection failed: 403 Forbidden>
-20260601T093221Z,https://samuelw86.sg-host.com/,mobile,72,3023,3910,0.091193,93,8228,17701,,,,,,ok
-20260601T093221Z,https://samuelw86.sg-host.com/,desktop,81,783,909,0.05935,261,3061,3957,,,,,,ok
-20260601T093221Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,mobile,,,,,,,,,,,,,error: The read operation timed out
-20260601T093221Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,desktop,67,872,3403,0.00184,177,3398,4465,,,,,,ok
-20260601T093221Z,https://samuelw86.sg-host.com/quoc-gia/phap/,mobile,40,3202,5858,0.000206,1396,7769,26354,,,,,,ok
-20260601T093221Z,https://samuelw86.sg-host.com/quoc-gia/phap/,desktop,40,834,4797,0.0015780000000000002,791,4965,4933,,,,,,ok
-20260601T093221Z,https://samuelw86.sg-host.com/cac-vung-ruou-vang-phap-noi-tieng-nhat/,mobile,,,,,,,,,,,,,error: The read operation timed out
-20260601T093221Z,https://samuelw86.sg-host.com/cac-vung-ruou-vang-phap-noi-tieng-nhat/,desktop,73,826,1286,0.010065000000000001,333,4259,3853,,,,,,ok
-20260601T101259Z,https://samuelw86.sg-host.com/,mobile,58,3034,3910,0.087209,601,8416,19245,,,,,,ok
-20260601T101259Z,https://samuelw86.sg-host.com/,desktop,90,779,909,0.060257,69,3059,3766,,,,,,ok
-20260601T101259Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,mobile,40,3495,22294,0.000566,876,8964,24113,,,,,,ok
-20260601T101259Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,desktop,53,875,3245,0.001315,441,4667,4371,,,,,,ok
-20260601T101259Z,https://samuelw86.sg-host.com/quoc-gia/phap/,mobile,52,3192,6533,0.000206,414,12221,24520,,,,,,ok
-20260601T101259Z,https://samuelw86.sg-host.com/quoc-gia/phap/,desktop,45,831,4132,0.07579,604,3172,4763,,,,,,ok
-20260601T101259Z,https://samuelw86.sg-host.com/cac-vung-ruou-vang-phap-noi-tieng-nhat/,mobile,48,3341,5227,0,720,10170,16729,,,,,,ok
-20260601T101259Z,https://samuelw86.sg-host.com/cac-vung-ruou-vang-phap-noi-tieng-nhat/,desktop,63,842,1070,0.01049,850,3048,4086,,,,,,ok
 20260601T103320Z,https://wewine.vn/,mobile,64,2042,20492,0.0006380000000000001,0,9793,20507,4763,,0,,2983,ok
 20260601T103320Z,https://wewine.vn/,desktop,90,402,565,0.000157,0,6944,568,4071,4129,1,68,3609,ok
 20260601T103320Z,https://wewine.vn/cac-vung-ruou-vang-phap-noi-tieng-nhat/,mobile,93,1852,2452,0.024607,0,4844,2467,5528,5526,0,171,3654,ok
