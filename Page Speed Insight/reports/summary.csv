@@ -3,3 +3,11 @@ timestamp,url,strategy,performance_score,fcp_ms,lcp_ms,cls,tbt_ms,speed_index_ms
 20260601T091552Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,mobile,,,,,,,,,,,,,error: <urlopen error Tunnel connection failed: 403 Forbidden>
 20260601T091552Z,https://samuelw86.sg-host.com/quoc-gia/phap/,mobile,,,,,,,,,,,,,error: <urlopen error Tunnel connection failed: 403 Forbidden>
 20260601T091552Z,https://samuelw86.sg-host.com/cac-vung-ruou-vang-phap-noi-tieng-nhat/,mobile,,,,,,,,,,,,,error: <urlopen error Tunnel connection failed: 403 Forbidden>
+20260601T093221Z,https://samuelw86.sg-host.com/,mobile,72,3023,3910,0.091193,93,8228,17701,,,,,,ok
+20260601T093221Z,https://samuelw86.sg-host.com/,desktop,81,783,909,0.05935,261,3061,3957,,,,,,ok
+20260601T093221Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,mobile,,,,,,,,,,,,,error: The read operation timed out
+20260601T093221Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,desktop,67,872,3403,0.00184,177,3398,4465,,,,,,ok
+20260601T093221Z,https://samuelw86.sg-host.com/quoc-gia/phap/,mobile,40,3202,5858,0.000206,1396,7769,26354,,,,,,ok
+20260601T093221Z,https://samuelw86.sg-host.com/quoc-gia/phap/,desktop,40,834,4797,0.0015780000000000002,791,4965,4933,,,,,,ok
+20260601T093221Z,https://samuelw86.sg-host.com/cac-vung-ruou-vang-phap-noi-tieng-nhat/,mobile,,,,,,,,,,,,,error: The read operation timed out
+20260601T093221Z,https://samuelw86.sg-host.com/cac-vung-ruou-vang-phap-noi-tieng-nhat/,desktop,73,826,1286,0.010065000000000001,333,4259,3853,,,,,,ok
