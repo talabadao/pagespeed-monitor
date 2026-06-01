@@ -37,7 +37,10 @@ REPORT_DIR = BASE_DIR / "reports"
 RAW_DIR    = REPORT_DIR / "raw"
 CSV_PATH   = REPORT_DIR / "summary.csv"
 
-PSI_ENDPOINT = "https://www.googleapis.com/pagespeedonline/v5/runPagespeed"
+PSI_ENDPOINT  = "https://www.googleapis.com/pagespeedonline/v5/runPagespeed"
+API_TIMEOUT   = 120   # giây — tăng lên để tránh timeout cho trang nặng
+MAX_RETRIES   = 3     # số lần retry khi gặp timeout/lỗi mạng
+RETRY_DELAY   = 15    # giây chờ giữa mỗi lần retry
 
 CSV_HEADERS = [
     "timestamp", "url", "strategy",
@@ -50,6 +53,7 @@ CSV_HEADERS = [
 # ─── API ──────────────────────────────────────────────────────────────────────
 
 def fetch_psi(url: str, api_key: str, strategy: str = "mobile") -> dict:
+    """Gọi PSI API với retry tự động khi gặp timeout hoặc lỗi mạng."""
     params = urllib.parse.urlencode({
         "url": url,
         "key": api_key,
@@ -57,12 +61,25 @@ def fetch_psi(url: str, api_key: str, strategy: str = "mobile") -> dict:
         "category": "performance",
     })
     full_url = f"{PSI_ENDPOINT}?{params}"
-    try:
-        with urllib.request.urlopen(full_url, timeout=60) as resp:
-            return json.loads(resp.read().decode())
-    except urllib.error.HTTPError as e:
-        body = e.read().decode()
-        raise RuntimeError(f"HTTP {e.code}: {body[:300]}")
+
+    last_error = None
+    for attempt in range(1, MAX_RETRIES + 1):
+        try:
+            with urllib.request.urlopen(full_url, timeout=API_TIMEOUT) as resp:
+                return json.loads(resp.read().decode())
+        except urllib.error.HTTPError as e:
+            body = e.read().decode()
+            raise RuntimeError(f"HTTP {e.code}: {body[:300]}")  # lỗi API thì không retry
+        except Exception as e:
+            last_error = e
+            if attempt < MAX_RETRIES:
+                print(f"       ⚠ Attempt {attempt}/{MAX_RETRIES} failed: {e}")
+                print(f"       → Retry sau {RETRY_DELAY}s...")
+                time.sleep(RETRY_DELAY)
+            else:
+                print(f"       ✗ Tất cả {MAX_RETRIES} lần thử đều thất bại.")
+
+    raise RuntimeError(f"After {MAX_RETRIES} retries: {last_error}")
 
 
 def extract_metrics(data: dict) -> dict:
