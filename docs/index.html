@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PageSpeed Dashboard — samuelw86</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #f8f8f6; --surface: #fff; --border: rgba(0,0,0,0.08);
+    --text: #1a1a18; --muted: #6b6b67; --good: #1d9e75; --warn: #ba7517; --bad: #e24b4a;
+    --good-bg: #e1f5ee; --warn-bg: #faeeda; --bad-bg: #fcebeb;
+  }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.5; }
+  header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  header h1 { font-size: 16px; font-weight: 600; }
+  header .meta { font-size: 12px; color: var(--muted); }
+  #last-updated { font-size: 12px; color: var(--muted); }
+  .container { max-width: 1100px; margin: 0 auto; padding: 24px 16px; }
+  .section-title { font-size: 13px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin: 28px 0 12px; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+  .card .page { font-size: 11px; color: var(--muted); margin-bottom: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .card .scores { display: flex; gap: 12px; align-items: flex-end; }
+  .score-block { flex: 1; text-align: center; }
+  .score-block .label { font-size: 10px; color: var(--muted); margin-bottom: 3px; }
+  .score-num { font-size: 32px; font-weight: 700; line-height: 1; }
+  .score-num.good { color: var(--good); }
+  .score-num.warn { color: var(--warn); }
+  .score-num.bad  { color: var(--bad);  }
+  .score-num.err  { color: var(--muted); font-size: 18px; }
+  .badge { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 6px; border-radius: 4px; margin-top: 4px; }
+  .badge.good { background: var(--good-bg); color: var(--good); }
+  .badge.warn { background: var(--warn-bg); color: var(--warn); }
+  .badge.bad  { background: var(--bad-bg);  color: var(--bad); }
+  .metrics-row { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
+  .metric-chip { font-size: 11px; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; padding: 2px 6px; color: var(--muted); }
+  .metric-chip span { color: var(--text); font-weight: 500; }
+  .chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media(max-width: 640px) { .chart-grid { grid-template-columns: 1fr; } }
+  .chart-box { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+  .chart-box h3 { font-size: 13px; font-weight: 600; margin-bottom: 14px; color: var(--text); }
+  .chart-wrap { position: relative; height: 220px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+  .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--muted); }
+  .legend-dot { width: 10px; height: 3px; border-radius: 2px; }
+  table { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+  th { font-size: 11px; font-weight: 600; color: var(--muted); text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); background: var(--bg); }
+  td { font-size: 12px; padding: 9px 12px; border-bottom: 1px solid var(--border); color: var(--text); }
+  tr:last-child td { border-bottom: none; }
+  .pill { display: inline-block; padding: 2px 7px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+  .pill.good { background: var(--good-bg); color: var(--good); }
+  .pill.warn { background: var(--warn-bg); color: var(--warn); }
+  .pill.bad  { background: var(--bad-bg);  color: var(--bad); }
+  .pill.err  { background: #f1efe8; color: #5f5e5a; }
+  .strategy-tab { display: inline-flex; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; margin-bottom: 16px; }
+  .strategy-tab button { border: none; background: none; padding: 6px 16px; font-size: 12px; cursor: pointer; color: var(--muted); }
+  .strategy-tab button.active { background: var(--text); color: #fff; }
+  #loading { text-align: center; padding: 60px; color: var(--muted); font-size: 14px; }
+  #error { text-align: center; padding: 60px; color: var(--bad); }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>PageSpeed Dashboard</h1>
+    <div class="meta">samuelw86.sg-host.com — tự động cập nhật mỗi giờ</div>
+  </div>
+  <div id="last-updated">Đang tải...</div>
+</header>
+
+<div class="container">
+  <div id="loading">Đang tải dữ liệu...</div>
+  <div id="error" style="display:none"></div>
+  <div id="content" style="display:none">
+    <div class="strategy-tab">
+      <button class="active" onclick="setStrategy('mobile',this)">Mobile</button>
+      <button onclick="setStrategy('desktop',this)">Desktop</button>
+    </div>
+
+    <div class="section-title">Điểm số mới nhất</div>
+    <div class="cards" id="score-cards"></div>
+
+    <div class="section-title" style="margin-top:32px">Xu hướng Performance Score (24h gần nhất)</div>
+    <div class="chart-grid">
+      <div class="chart-box">
+        <h3>Performance Score</h3>
+        <div class="chart-wrap"><canvas id="score-chart" role="img" aria-label="Biểu đồ xu hướng Performance Score"></canvas></div>
+        <div class="legend" id="score-legend"></div>
+      </div>
+      <div class="chart-box">
+        <h3>LCP — Largest Contentful Paint (ms)</h3>
+        <div class="chart-wrap"><canvas id="lcp-chart" role="img" aria-label="Biểu đồ xu hướng LCP"></canvas></div>
+        <div class="legend" id="lcp-legend"></div>
+      </div>
+    </div>
+
+    <div class="section-title" style="margin-top:32px">20 lần chạy gần nhất</div>
+    <div style="overflow-x:auto">
+      <table id="history-table">
+        <thead><tr>
+          <th>Thời gian (UTC+7)</th><th>Trang</th><th>Strategy</th>
+          <th>Score</th><th>FCP</th><th>LCP</th><th>CLS</th><th>TBT</th><th>Status</th>
+        </tr></thead>
+        <tbody id="history-body"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+const CSV_URL = "https://raw.githubusercontent.com/talabadao/pagespeed-monitor/main/Page%20Speed%20Insight/reports/summary.csv";
+
+const PAGE_COLORS = ["#378ADD","#1d9e75","#ba7517","#D4537E"];
+const PAGE_NAMES = { "https://samuelw86.sg-host.com/": "Homepage", "https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/": "Product", "https://samuelw86.sg-host.com/quoc-gia/phap/": "Category", "https://samuelw86.sg-host.com/cac-vung-ruou-vang-phap-noi-tieng-nhat/": "Blog" };
+
+let allData = [], currentStrategy = "mobile";
+let scoreChart, lcpChart;
+
+function scoreClass(s) { if (s===null||s===undefined||s==="") return "err"; if(s>=90) return "good"; if(s>=50) return "warn"; return "bad"; }
+function scoreLabel(s) { if(s===null||s===undefined||s==="") return "?"; if(s>=90) return "Tốt"; if(s>=50) return "Cần cải thiện"; return "Kém"; }
+function fmt(v,unit="ms") { if(v===null||v===undefined||v==="") return "—"; return Math.round(v).toLocaleString()+(unit?unit:""); }
+function shortUrl(u) { return PAGE_NAMES[u] || u.replace("https://samuelw86.sg-host.com","").replace(/\//g," / ") || "Homepage"; }
+function tsToLocal(ts) {
+  const y=ts.slice(0,4),mo=ts.slice(4,6),d=ts.slice(6,8),h=ts.slice(9,11),m=ts.slice(11,13);
+  const dt = new Date(`${y}-${mo}-${d}T${h}:${m}:00Z`);
+  return dt.toLocaleString("vi-VN",{timeZone:"Asia/Ho_Chi_Minh",day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"});
+}
+
+function setStrategy(s, btn) {
+  currentStrategy = s;
+  document.querySelectorAll(".strategy-tab button").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+  render();
+}
+
+function getLatest(strategy) {
+  const filtered = allData.filter(r => r.strategy === strategy && r.status === "ok");
+  const byUrl = {};
+  filtered.forEach(r => { if(!byUrl[r.url] || r.timestamp > byUrl[r.url].timestamp) byUrl[r.url] = r; });
+  return Object.values(byUrl);
+}
+
+function getTrend(strategy, hours=24) {
+  const cutoff = new Date(Date.now() - hours*3600*1000);
+  return allData.filter(r => {
+    const ts = r.timestamp;
+    const dt = new Date(`${ts.slice(0,4)}-${ts.slice(4,6)}-${ts.slice(6,8)}T${ts.slice(9,11)}:${ts.slice(11,13)}:00Z`);
+    return r.strategy === strategy && dt >= cutoff;
+  });
+}
+
+function renderCards(strategy) {
+  const latest = getLatest(strategy);
+  const urls = Object.keys(PAGE_NAMES);
+  const el = document.getElementById("score-cards");
+  el.innerHTML = urls.map((url,i) => {
+    const r = latest.find(x=>x.url===url);
+    const score = r ? r.performance_score : null;
+    const cls = scoreClass(score);
+    const scoreDisplay = score !== null && score !== "" ? score : "—";
+    return `<div class="card">
+      <div class="page" style="border-left:3px solid ${PAGE_COLORS[i]};padding-left:8px">${PAGE_NAMES[url]}</div>
+      <div class="scores">
+        <div class="score-block">
+          <div class="score-num ${cls}">${scoreDisplay}</div>
+          <div class="badge ${cls}">${score!==null&&score!==""?scoreLabel(score):"No data"}</div>
+        </div>
+      </div>
+      ${r ? `<div class="metrics-row">
+        <div class="metric-chip">FCP <span>${fmt(r.fcp_ms)}</span></div>
+        <div class="metric-chip">LCP <span>${fmt(r.lcp_ms)}</span></div>
+        <div class="metric-chip">CLS <span>${r.cls!==null&&r.cls!==""?parseFloat(r.cls).toFixed(3):"—"}</span></div>
+        <div class="metric-chip">TBT <span>${fmt(r.tbt_ms)}</span></div>
+      </div>` : '<div class="metric-chip" style="margin-top:8px">Chưa có dữ liệu cho strategy này</div>'}
+    </div>`;
+  }).join("");
+}
+
+function renderCharts(strategy) {
+  const trend = getTrend(strategy, 168);
+  const urls = Object.keys(PAGE_NAMES);
+  const timestamps = [...new Set(trend.map(r=>r.timestamp))].sort();
+  const labels = timestamps.map(tsToLocal);
+
+  const makeDataset = (url, field, i) => ({
+    label: PAGE_NAMES[url],
+    data: timestamps.map(ts => { const r = trend.find(x=>x.url===url&&x.timestamp===ts); return r && r[field]!==""? parseFloat(r[field]) : null; }),
+    borderColor: PAGE_COLORS[i], backgroundColor: PAGE_COLORS[i]+"22",
+    borderWidth: 2, pointRadius: 3, pointHoverRadius: 5, tension: 0.3, spanGaps: true
+  });
+
+  const chartOpts = (yLabel, refLines) => ({
+    responsive: true, maintainAspectRatio: false,
+    interaction: { mode: "index", intersect: false },
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ` ${ctx.dataset.label}: ${Math.round(ctx.parsed.y)}${yLabel}` } } },
+    scales: {
+      x: { ticks: { maxTicksLimit: 8, maxRotation: 0, font: { size: 10 } }, grid: { color: "rgba(0,0,0,0.04)" } },
+      y: { ticks: { font: { size: 10 } }, grid: { color: "rgba(0,0,0,0.04)" }, ...(refLines ? { suggestedMin: 0, suggestedMax: 100 } : {}) }
+    }
+  });
+
+  if (scoreChart) scoreChart.destroy();
+  if (lcpChart) lcpChart.destroy();
+
+  scoreChart = new Chart(document.getElementById("score-chart"), {
+    type: "line",
+    data: { labels, datasets: urls.map((u,i)=>makeDataset(u,"performance_score",i)) },
+    options: chartOpts("", true)
+  });
+
+  lcpChart = new Chart(document.getElementById("lcp-chart"), {
+    type: "line",
+    data: { labels, datasets: urls.map((u,i)=>makeDataset(u,"lcp_ms",i)) },
+    options: { ...chartOpts("ms", false), plugins: { ...chartOpts("ms",false).plugins, annotation: undefined } }
+  });
+
+  const renderLegend = (id) => {
+    document.getElementById(id).innerHTML = urls.map((u,i)=>`<div class="legend-item"><div class="legend-dot" style="background:${PAGE_COLORS[i]}"></div>${PAGE_NAMES[u]}</div>`).join("");
+  };
+  renderLegend("score-legend");
+  renderLegend("lcp-legend");
+}
+
+function renderTable(strategy) {
+  const rows = allData.filter(r=>r.strategy===strategy).slice(-80).reverse().slice(0,20);
+  document.getElementById("history-body").innerHTML = rows.map(r => {
+    const cls = r.status==="ok" ? scoreClass(r.performance_score) : "err";
+    const score = r.status==="ok" && r.performance_score!=="" ? r.performance_score : "—";
+    const shortPage = shortUrl(r.url);
+    return `<tr>
+      <td>${tsToLocal(r.timestamp)}</td>
+      <td title="${r.url}">${shortPage}</td>
+      <td>${r.strategy}</td>
+      <td><span class="pill ${cls}">${score}</span></td>
+      <td>${fmt(r.fcp_ms)}</td>
+      <td>${fmt(r.lcp_ms)}</td>
+      <td>${r.cls!==""&&r.cls!==null?parseFloat(r.cls).toFixed(3):"—"}</td>
+      <td>${fmt(r.tbt_ms)}</td>
+      <td><span class="pill ${r.status==="ok"?"good":"err"}">${r.status==="ok"?"OK":"Lỗi"}</span></td>
+    </tr>`;
+  }).join("");
+}
+
+function render() {
+  renderCards(currentStrategy);
+  renderCharts(currentStrategy);
+  renderTable(currentStrategy);
+}
+
+Papa.parse(CSV_URL, {
+  download: true, header: true, skipEmptyLines: true,
+  complete(results) {
+    allData = results.data.filter(r => !r.status.includes("403") && r.timestamp.startsWith("2"));
+    document.getElementById("loading").style.display = "none";
+    if (!allData.length) { document.getElementById("error").style.display="block"; document.getElementById("error").textContent="Chưa có dữ liệu."; return; }
+    document.getElementById("content").style.display = "block";
+    const latest = allData[allData.length-1];
+    document.getElementById("last-updated").textContent = "Cập nhật lần cuối: " + tsToLocal(latest.timestamp) + " (GMT+7)";
+    render();
+  },
+  error(err) {
+    document.getElementById("loading").style.display="none";
+    document.getElementById("error").style.display="block";
+    document.getElementById("error").innerHTML = `Không tải được dữ liệu.<br><small>Repo cần ở chế độ Public. Lỗi: ${err}</small>`;
+  }
+});
+</script>
+</body>
+</html>
