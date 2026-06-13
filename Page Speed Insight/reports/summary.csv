@@ -4741,3 +4741,29 @@ timestamp,url,strategy,performance_score,fcp_ms,lcp_ms,cls,tbt_ms,speed_index_ms
 20260613T082348Z,https://samuelw86.sg-host.com/quoc-gia/phap/,desktop,79,1612,2072,0.0007740000000000001,0,2504,2074,,,,,,ok
 20260613T082348Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,mobile,89,1956,2631,0.000772,0,6399,2639,,,,,,ok
 20260613T082348Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,desktop,94,442,602,0.001144,0,2610,602,,,,,,ok
+20260613T111752Z,https://wewine.vn/,mobile,55,19657,20257,0.000703,0,19657,20272,5540,5668,0,209,3728,ok
+20260613T111752Z,https://wewine.vn/,desktop,65,1868,3468,0.000675,0,5759,3472,4132,4256,1,75,3629,ok
+20260613T111752Z,https://wewine.vn/cac-vung-ruou-vang-phap-noi-tieng-nhat/,mobile,55,19700,20225,0.024607,0,20544,20233,5540,5668,0,209,3728,ok
+20260613T111752Z,https://wewine.vn/cac-vung-ruou-vang-phap-noi-tieng-nhat/,desktop,62,3288,3428,0.009424,0,5838,3430,4973,5176,1,75,3982,ok
+20260613T111752Z,https://wewine.vn/quoc-gia/phap/,mobile,55,10822,20197,0.000206,0,15281,20205,5540,5668,0,209,3728,ok
+20260613T111752Z,https://wewine.vn/quoc-gia/phap/,desktop,62,3286,3426,0.000772,0,5317,3428,4973,5176,1,75,3982,ok
+20260613T111752Z,https://wewine.vn/michele-chiarlo-montemareto-nizza/,mobile,,,,,,,,,,,,,"error: HTTP 400: {
+  ""error"": {
+    ""code"": 400,
+    ""message"": ""Lighthouse returned error: NO_FCP. The page did not paint any content. Please ensure you keep the browser window in the foreground during the load and try again. (NO_FCP)"",
+    ""errors"": [
+      {
+        ""message"": ""Lighthouse returned error: NO_FCP. "
+20260613T111752Z,https://wewine.vn/michele-chiarlo-montemareto-nizza/,desktop,62,3282,3442,0.0012799999999999999,0,5992,3446,4973,5176,1,75,3982,ok
+20260613T111752Z,https://samuelw86.sg-host.com/,mobile,,,,,,,,,,,,,"error: HTTP 400: {
+  ""error"": {
+    ""code"": 400,
+    ""message"": ""Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Details: net::ERR_TIMED_OUT)"",
+   "
+20260613T111752Z,https://samuelw86.sg-host.com/,desktop,71,444,3564,0.000958,0,5378,3576,,,,,,ok
+20260613T111752Z,https://samuelw86.sg-host.com/cac-vung-ruou-vang-phap-noi-tieng-nhat/,mobile,84,1960,3385,0.024607,1,6790,3833,,,,,,ok
+20260613T111752Z,https://samuelw86.sg-host.com/cac-vung-ruou-vang-phap-noi-tieng-nhat/,desktop,93,767,1087,0.009426,0,2260,1091,,,,,,ok
+20260613T111752Z,https://samuelw86.sg-host.com/quoc-gia/phap/,mobile,68,3043,5518,0.000206,0,7152,5526,,,,,,ok
+20260613T111752Z,https://samuelw86.sg-host.com/quoc-gia/phap/,desktop,81,1366,1806,0.0007740000000000001,0,3187,1806,,,,,,ok
+20260613T111752Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,mobile,89,2324,2924,0.000906,0,4877,2924,,,,,,ok
+20260613T111752Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,desktop,95,442,642,0.001144,0,2205,642,,,,,,ok
