@@ -225,22 +225,22 @@ function stddev(arr) {
   return Math.sqrt(arr.reduce((a,b)=>a+(b-mean)**2,0)/arr.length);
 }
 
-// ── OUTLIER REMOVAL (IQR method) ──────────────────────────────
-// Loại bỏ các điểm nằm ngoài [Q1 − 1.5×IQR, Q3 + 1.5×IQR]
-// Áp dụng cho cả 2 hosting để đảm bảo công bằng.
-// Mục đích: loại các lần API test bất thường (net::ERR_TIMED_OUT trả
-// về score rất thấp, hoặc lần chạy đặc biệt tốt bất thường) trước
-// khi tính avg và σ, tránh làm lệch điểm ổn định.
+// ── OUTLIER REMOVAL (lower-only IQR) ─────────────────────────
+// Chỉ loại lower outliers: score thấp bất thường dưới Q1 − 1.5×IQR
+// thường do API PageSpeed không load được trang → trả về score rất thấp.
+//
+// KHÔNG loại upper outliers: score cao là hợp lệ (site load nhanh hôm đó).
+// Lý do: wewine có 83% scores tập trung 55–56 nên full IQR sẽ xem tất cả
+// scores 60–97 là "outlier", loại hết → σ≈0 → consistency giả cao 99/100.
 function removeOutliers(arr) {
-  if (arr.length < 6) return arr; // quá ít điểm, không lọc
+  if (arr.length < 6) return arr;
   const sorted = [...arr].sort((a, b) => a - b);
   const n  = sorted.length;
   const q1 = sorted[Math.floor(n * 0.25)];
   const q3 = sorted[Math.floor(n * 0.75)];
   const iqr = q3 - q1;
-  const lo  = q1 - 1.5 * iqr;
-  const hi  = q3 + 1.5 * iqr;
-  return arr.filter(v => v >= lo && v <= hi);
+  const lo  = q1 - 1.5 * iqr; // chỉ dùng lower fence
+  return arr.filter(v => v >= lo);
 }
 
 // ── COMPARISON CARDS ─────────────────────────────────────────
