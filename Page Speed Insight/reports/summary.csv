@@ -7165,3 +7165,32 @@ timestamp,url,strategy,performance_score,fcp_ms,lcp_ms,cls,tbt_ms,speed_index_ms
 }
 "
 20260626T105502Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,desktop,97,442,642,0.001144,0,1837,642,,,,,,ok
+20260626T131419Z,https://wewine.vn/,mobile,73,1819,20869,0.000703,0,3600,20944,5268,5370,2,178,3692,ok
+20260626T131419Z,https://wewine.vn/,desktop,64,3244,3444,0.00131,0,3244,3448,4390,4451,1,75,3713,ok
+20260626T131419Z,https://wewine.vn/cac-vung-ruou-vang-phap-noi-tieng-nhat/,mobile,55,19672,20197,0.024607,0,19672,20205,5470,5631,0,209,3916,ok
+20260626T131419Z,https://wewine.vn/cac-vung-ruou-vang-phap-noi-tieng-nhat/,desktop,64,3293,3433,0.011788,0,3293,3435,5719,6003,1,72,4694,ok
+20260626T131419Z,https://wewine.vn/quoc-gia/phap/,mobile,55,19660,20185,0.000206,0,19660,20193,5470,5631,0,209,3916,ok
+20260626T131419Z,https://wewine.vn/quoc-gia/phap/,desktop,64,3283,3423,0.000895,0,3283,3425,5719,6003,1,72,4694,ok
+20260626T131419Z,https://wewine.vn/michele-chiarlo-montemareto-nizza/,mobile,55,19671,20046,0.000906,0,19671,20069,5470,5631,0,209,3916,ok
+20260626T131419Z,https://wewine.vn/michele-chiarlo-montemareto-nizza/,desktop,78,1882,2042,0.001142,0,2388,2046,5719,6003,1,72,4694,ok
+20260626T131419Z,https://samuelw86.sg-host.com/,mobile,,,,,,,,,,,,,"error: HTTP 500: {
+  ""error"": {
+    ""code"": 500,
+    ""message"": ""Lighthouse returned error: Something went wrong."",
+    ""errors"": [
+      {
+        ""message"": ""Lighthouse returned error: Something went wrong."",
+        ""domain"": ""lighthouse"",
+        ""reason"": ""lighthouseError""
+      }
+    ]
+  }
+}
+"
+20260626T131419Z,https://samuelw86.sg-host.com/,desktop,71,444,3584,0.001175,0,6133,3598,,,,,,ok
+20260626T131419Z,https://samuelw86.sg-host.com/cac-vung-ruou-vang-phap-noi-tieng-nhat/,mobile,79,2318,3743,0.024607,28,8266,4221,,,,,,ok
+20260626T131419Z,https://samuelw86.sg-host.com/cac-vung-ruou-vang-phap-noi-tieng-nhat/,desktop,89,818,1138,0.009425,0,3238,1142,,,,,,ok
+20260626T131419Z,https://samuelw86.sg-host.com/quoc-gia/phap/,mobile,66,3043,5518,0.000206,0,9351,5526,,,,,,ok
+20260626T131419Z,https://samuelw86.sg-host.com/quoc-gia/phap/,desktop,85,1134,1594,0.000906,0,2792,1596,,,,,,ok
+20260626T131419Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,mobile,90,1952,2552,0.000772,0,6398,2552,,,,,,ok
+20260626T131419Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,desktop,94,442,642,0.0011450000000000002,0,2437,642,,,,,,ok
