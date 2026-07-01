@@ -8453,3 +8453,23 @@ timestamp,url,strategy,performance_score,fcp_ms,lcp_ms,cls,tbt_ms,speed_index_ms
     ""message"": ""Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Details: net::ERR_TIMED_OUT)"",
    "
 20260701T121135Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,desktop,90,340,602,0,0,7234,602,,,,,,ok
+20260701T154605Z,https://wewine.vn/,mobile,55,19511,20111,0.000703,0,19511,20126,5268,5265,4,174,3365,ok
+20260701T154605Z,https://wewine.vn/,desktop,92,725,882,0.000157,0,2835,886,4342,4419,1,75,3720,ok
+20260701T154605Z,https://wewine.vn/cac-vung-ruou-vang-phap-noi-tieng-nhat/,mobile,89,1099,1826,0,0,17220,1826,5368,5594,0,204,3846,ok
+20260701T154605Z,https://wewine.vn/cac-vung-ruou-vang-phap-noi-tieng-nhat/,desktop,64,3244,3384,0.011297,0,3244,3386,5525,5769,1,73,4507,ok
+20260701T154605Z,https://wewine.vn/quoc-gia/phap/,mobile,55,19502,21077,0.000206,0,19502,21189,5368,5594,0,204,3846,ok
+20260701T154605Z,https://wewine.vn/quoc-gia/phap/,desktop,62,3242,3922,0.000895,0,3242,3978,5525,5769,1,73,4507,ok
+20260701T154605Z,https://wewine.vn/michele-chiarlo-montemareto-nizza/,mobile,55,10502,10877,0.000772,0,14011,10900,5368,5594,0,204,3846,ok
+20260701T154605Z,https://wewine.vn/michele-chiarlo-montemareto-nizza/,desktop,96,410,570,0.001025,0,2035,574,5525,5769,1,73,4507,ok
+20260701T154605Z,https://samuelw86.sg-host.com/,mobile,90,1502,2627,0,6,7041,2999,,,,,,ok
+20260701T154605Z,https://samuelw86.sg-host.com/,desktop,94,362,582,0,0,2437,584,,,,,,ok
+20260701T154605Z,https://samuelw86.sg-host.com/cac-vung-ruou-vang-phap-noi-tieng-nhat/,mobile,84,1879,3604,0.024607,0,5635,3612,,,,,,ok
+20260701T154605Z,https://samuelw86.sg-host.com/cac-vung-ruou-vang-phap-noi-tieng-nhat/,desktop,,,,,,,,,,,,,"error: HTTP 400: {
+  ""error"": {
+    ""code"": 400,
+    ""message"": ""Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Details: net::ERR_TIMED_OUT)"",
+   "
+20260701T154605Z,https://samuelw86.sg-host.com/quoc-gia/phap/,mobile,68,3446,4946,0.000206,0,7481,4961,,,,,,ok
+20260701T154605Z,https://samuelw86.sg-host.com/quoc-gia/phap/,desktop,80,1379,1879,0.000751,0,3140,1881,,,,,,ok
+20260701T154605Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,mobile,88,2067,2892,0.000772,0,5764,2900,,,,,,ok
+20260701T154605Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,desktop,98,362,603,0.0011450000000000002,0,1548,607,,,,,,ok
