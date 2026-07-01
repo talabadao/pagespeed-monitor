@@ -8399,3 +8399,57 @@ timestamp,url,strategy,performance_score,fcp_ms,lcp_ms,cls,tbt_ms,speed_index_ms
 20260701T085124Z,https://samuelw86.sg-host.com/quoc-gia/phap/,desktop,79,1530,1770,0.000773,0,4336,1774,,,,,,ok
 20260701T085124Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,mobile,90,1824,2649,0.000206,9,6147,4509,,,,,,ok
 20260701T085124Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,desktop,96,362,623,0.000119,0,2001,625,,,,,,ok
+20260701T121135Z,https://wewine.vn/,mobile,55,10653,20103,0.000533,0,12257,20118,5268,5265,4,174,3365,ok
+20260701T121135Z,https://wewine.vn/,desktop,79,422,3882,0.0008320000000000001,0,1130,3932,4342,4419,1,75,3720,ok
+20260701T121135Z,https://wewine.vn/cac-vung-ruou-vang-phap-noi-tieng-nhat/,mobile,,,,,,,,,,,,,"error: HTTP 400: {
+  ""error"": {
+    ""code"": 400,
+    ""message"": ""Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Details: net::ERR_TIMED_OUT)"",
+   "
+20260701T121135Z,https://wewine.vn/cac-vung-ruou-vang-phap-noi-tieng-nhat/,desktop,62,3289,3429,0.011297,0,5066,3431,5525,5769,1,73,4507,ok
+20260701T121135Z,https://wewine.vn/quoc-gia/phap/,mobile,55,19609,20134,0.000206,0,19609,20141,5368,5594,0,204,3846,ok
+20260701T121135Z,https://wewine.vn/quoc-gia/phap/,desktop,61,3244,4144,0.000772,0,3244,4222,5525,5769,1,73,4507,ok
+20260701T121135Z,https://wewine.vn/michele-chiarlo-montemareto-nizza/,mobile,,,,,,,,,,,,,"error: HTTP 500: {
+  ""error"": {
+    ""code"": 500,
+    ""message"": ""Lighthouse returned error: Something went wrong."",
+    ""errors"": [
+      {
+        ""message"": ""Lighthouse returned error: Something went wrong."",
+        ""domain"": ""lighthouse"",
+        ""reason"": ""lighthouseError""
+      }
+    ]
+  }
+}
+"
+20260701T121135Z,https://wewine.vn/michele-chiarlo-montemareto-nizza/,desktop,,,,,,,,,,,,,"error: HTTP 400: {
+  ""error"": {
+    ""code"": 400,
+    ""message"": ""Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Details: net::ERR_TIMED_OUT)"",
+   "
+20260701T121135Z,https://samuelw86.sg-host.com/,mobile,93,1509,2634,0.000206,0,4838,2642,,,,,,ok
+20260701T121135Z,https://samuelw86.sg-host.com/,desktop,99,362,582,0.001112,0,1353,584,,,,,,ok
+20260701T121135Z,https://samuelw86.sg-host.com/cac-vung-ruou-vang-phap-noi-tieng-nhat/,mobile,84,1877,3602,0.024607,0,5931,3610,,,,,,ok
+20260701T121135Z,https://samuelw86.sg-host.com/cac-vung-ruou-vang-phap-noi-tieng-nhat/,desktop,93,728,1068,0.009426,0,2402,1070,,,,,,ok
+20260701T121135Z,https://samuelw86.sg-host.com/quoc-gia/phap/,mobile,,,,,,,,,,,,,"error: HTTP 500: {
+  ""error"": {
+    ""code"": 500,
+    ""message"": ""Lighthouse returned error: Something went wrong."",
+    ""errors"": [
+      {
+        ""message"": ""Lighthouse returned error: Something went wrong."",
+        ""domain"": ""lighthouse"",
+        ""reason"": ""lighthouseError""
+      }
+    ]
+  }
+}
+"
+20260701T121135Z,https://samuelw86.sg-host.com/quoc-gia/phap/,desktop,78,1558,2058,0.000906,0,3106,2060,,,,,,ok
+20260701T121135Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,mobile,,,,,,,,,,,,,"error: HTTP 400: {
+  ""error"": {
+    ""code"": 400,
+    ""message"": ""Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Details: net::ERR_TIMED_OUT)"",
+   "
+20260701T121135Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,desktop,90,340,602,0,0,7234,602,,,,,,ok
