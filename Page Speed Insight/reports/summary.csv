@@ -23923,3 +23923,32 @@ timestamp,url,strategy,performance_score,fcp_ms,lcp_ms,cls,tbt_ms,speed_index_ms
 20260817T184611Z,https://samuelw86.sg-host.com/quoc-gia/phap/,desktop,88,1144,1644,0.0007735077839438688,0,2033,1646,,,,,,ok
 20260817T184611Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,mobile,93,1875,2700,0.0007713999853894982,0,4163,2708,,,,,,ok
 20260817T184611Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,desktop,98,362,582,0.001562511509191087,0,1543,584,,,,,,ok
+20260817T193327Z,https://wewine.vn/,mobile,41,2102,31428,0.13547859819152286,726,14923,31571,2145,2500,3,157,1516,ok
+20260817T193327Z,https://wewine.vn/,desktop,53,442,6223,0.021674928640224148,318,4756,6229,2108,2364,0,72,1746,ok
+20260817T193327Z,https://wewine.vn/cac-vung-ruou-vang-phap-noi-tieng-nhat/,mobile,64,2252,3626,0.02460708544050605,633,7513,18843,2790,3068,0,213,2049,ok
+20260817T193327Z,https://wewine.vn/cac-vung-ruou-vang-phap-noi-tieng-nhat/,desktop,64,474,772,0.011615244916874807,1040,2731,3637,2366,2697,2,84,2021,ok
+20260817T193327Z,https://wewine.vn/quoc-gia/phap/,mobile,51,2498,5351,0.0002056679090944417,706,9850,23806,2790,3068,0,213,2049,ok
+20260817T193327Z,https://wewine.vn/quoc-gia/phap/,desktop,45,815,5128,0.0015764136513877942,621,2976,7029,2366,2697,2,84,2021,ok
+20260817T193327Z,https://wewine.vn/michele-chiarlo-montemareto-nizza/,mobile,,,,,,,,,,,,,"error: HTTP 500: {
+  ""error"": {
+    ""code"": 500,
+    ""message"": ""Lighthouse returned error: Something went wrong."",
+    ""errors"": [
+      {
+        ""message"": ""Lighthouse returned error: Something went wrong."",
+        ""domain"": ""lighthouse"",
+        ""reason"": ""lighthouseError""
+      }
+    ]
+  }
+}
+"
+20260817T193327Z,https://wewine.vn/michele-chiarlo-montemareto-nizza/,desktop,70,442,2778,0.0011182288474447658,207,3219,3832,2366,2697,2,84,2021,ok
+20260817T193327Z,https://samuelw86.sg-host.com/,mobile,93,1511,2636,0.0002056679090944417,0,4599,2644,,,,,,ok
+20260817T193327Z,https://samuelw86.sg-host.com/,desktop,96,362,582,0.0011752172215253286,0,2156,584,,,,,,ok
+20260817T193327Z,https://samuelw86.sg-host.com/cac-vung-ruou-vang-phap-noi-tieng-nhat/,mobile,89,1692,3417,0.02460708544050605,0,3767,3425,,,,,,ok
+20260817T193327Z,https://samuelw86.sg-host.com/cac-vung-ruou-vang-phap-noi-tieng-nhat/,desktop,96,736,1076,0.009425255461139152,0,1647,1078,,,,,,ok
+20260817T193327Z,https://samuelw86.sg-host.com/quoc-gia/phap/,mobile,80,2396,3896,0.0002056679090944417,0,5756,3911,,,,,,ok
+20260817T193327Z,https://samuelw86.sg-host.com/quoc-gia/phap/,desktop,82,1452,1692,0.0007735077839438688,0,2913,1696,,,,,,ok
+20260817T193327Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,mobile,91,1824,2649,0.0007713999853894982,1,5190,4628,,,,,,ok
+20260817T193327Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,desktop,95,362,606,0.00114456749019499,0,2159,609,,,,,,ok
