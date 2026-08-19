@@ -25490,3 +25490,84 @@ timestamp,url,strategy,performance_score,fcp_ms,lcp_ms,cls,tbt_ms,speed_index_ms
 20260819T153810Z,https://samuelw86.sg-host.com/quoc-gia/phap/,desktop,88,1322,1562,0.0007735077839438688,0,1943,1566,,,,,,ok
 20260819T153810Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,mobile,90,1879,2704,0.0007713999853894982,0,5726,2712,,,,,,ok
 20260819T153810Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,desktop,97,362,608,0.001025397669599589,0,1746,612,,,,,,ok
+20260819T163807Z,https://wewine.vn/,mobile,,,,,,,,,,,,,"error: HTTP 500: {
+  ""error"": {
+    ""code"": 500,
+    ""message"": ""Lighthouse returned error: Something went wrong."",
+    ""errors"": [
+      {
+        ""message"": ""Lighthouse returned error: Something went wrong."",
+        ""domain"": ""lighthouse"",
+        ""reason"": ""lighthouseError""
+      }
+    ]
+  }
+}
+"
+20260819T163807Z,https://wewine.vn/,desktop,61,482,6123,0.021207209909377463,189,5610,6131,2098,2337,0,73,1718,ok
+20260819T163807Z,https://wewine.vn/cac-vung-ruou-vang-phap-noi-tieng-nhat/,mobile,64,2102,2402,0,1273,7492,17988,2657,2963,0,212,1869,ok
+20260819T163807Z,https://wewine.vn/cac-vung-ruou-vang-phap-noi-tieng-nhat/,desktop,83,482,870,0.011394077047398067,275,2389,3770,2324,2657,2,87,1950,ok
+20260819T163807Z,https://wewine.vn/quoc-gia/phap/,mobile,,,,,,,,,,,,,"error: HTTP 500: {
+  ""error"": {
+    ""code"": 500,
+    ""message"": ""Lighthouse returned error: Something went wrong."",
+    ""errors"": [
+      {
+        ""message"": ""Lighthouse returned error: Something went wrong."",
+        ""domain"": ""lighthouse"",
+        ""reason"": ""lighthouseError""
+      }
+    ]
+  }
+}
+"
+20260819T163807Z,https://wewine.vn/quoc-gia/phap/,desktop,40,817,6663,0.004808216958063717,874,3072,6790,2324,2657,2,87,1950,ok
+20260819T163807Z,https://wewine.vn/michele-chiarlo-montemareto-nizza/,mobile,31,2102,11479,0.2276303837487761,1035,9382,22465,2657,2963,0,212,1869,ok
+20260819T163807Z,https://wewine.vn/michele-chiarlo-montemareto-nizza/,desktop,39,444,5303,0.0018295525785833116,1318,3325,5321,2324,2657,2,87,1950,ok
+20260819T163807Z,https://samuelw86.sg-host.com/,mobile,92,1512,2637,0.0002056679090944417,0,5244,2645,,,,,,ok
+20260819T163807Z,https://samuelw86.sg-host.com/,desktop,95,363,583,0.0011752172215253286,0,2247,585,,,,,,ok
+20260819T163807Z,https://samuelw86.sg-host.com/cac-vung-ruou-vang-phap-noi-tieng-nhat/,mobile,89,1693,3418,0.02460708544050605,0,3843,3426,,,,,,ok
+20260819T163807Z,https://samuelw86.sg-host.com/cac-vung-ruou-vang-phap-noi-tieng-nhat/,desktop,94,748,1088,0.009425479022978986,12,2001,1219,,,,,,ok
+20260819T163807Z,https://samuelw86.sg-host.com/quoc-gia/phap/,mobile,80,2396,3896,0.0002056679090944417,0,5736,3911,,,,,,ok
+20260819T163807Z,https://samuelw86.sg-host.com/quoc-gia/phap/,desktop,,,,,,,,,,,,,"error: HTTP 500: {
+  ""error"": {
+    ""code"": 500,
+    ""message"": ""Lighthouse returned error: Something went wrong."",
+    ""errors"": [
+      {
+        ""message"": ""Lighthouse returned error: Something went wrong."",
+        ""domain"": ""lighthouse"",
+        ""reason"": ""lighthouseError""
+      }
+    ]
+  }
+}
+"
+20260819T163807Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,mobile,,,,,,,,,,,,,"error: HTTP 500: {
+  ""error"": {
+    ""code"": 500,
+    ""message"": ""Lighthouse returned error: Something went wrong."",
+    ""errors"": [
+      {
+        ""message"": ""Lighthouse returned error: Something went wrong."",
+        ""domain"": ""lighthouse"",
+        ""reason"": ""lighthouseError""
+      }
+    ]
+  }
+}
+"
+20260819T163807Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,desktop,,,,,,,,,,,,,"error: HTTP 500: {
+  ""error"": {
+    ""code"": 500,
+    ""message"": ""Lighthouse returned error: Something went wrong."",
+    ""errors"": [
+      {
+        ""message"": ""Lighthouse returned error: Something went wrong."",
+        ""domain"": ""lighthouse"",
+        ""reason"": ""lighthouseError""
+      }
+    ]
+  }
+}
+"
