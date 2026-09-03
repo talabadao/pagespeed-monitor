@@ -30357,3 +30357,97 @@ timestamp,url,strategy,performance_score,fcp_ms,lcp_ms,cls,tbt_ms,speed_index_ms
   }
 }
 "
+20260903T174058Z,https://wewine.vn/,mobile,44,2102,29853,0.06486734262358944,756,14652,29898,2370,2902,14,169,1567,ok
+20260903T174058Z,https://wewine.vn/,desktop,,,,,,,,,,,,,"error: HTTP 500: {
+  ""error"": {
+    ""code"": 500,
+    ""message"": ""Lighthouse returned error: Something went wrong."",
+    ""errors"": [
+      {
+        ""message"": ""Lighthouse returned error: Something went wrong."",
+        ""domain"": ""lighthouse"",
+        ""reason"": ""lighthouseError""
+      }
+    ]
+  }
+}
+"
+20260903T174058Z,https://wewine.vn/cac-vung-ruou-vang-phap-noi-tieng-nhat/,mobile,,,,,,,,,,,,,"error: HTTP 500: {
+  ""error"": {
+    ""code"": 500,
+    ""message"": ""Lighthouse returned error: Something went wrong."",
+    ""errors"": [
+      {
+        ""message"": ""Lighthouse returned error: Something went wrong."",
+        ""domain"": ""lighthouse"",
+        ""reason"": ""lighthouseError""
+      }
+    ]
+  }
+}
+"
+20260903T174058Z,https://wewine.vn/cac-vung-ruou-vang-phap-noi-tieng-nhat/,desktop,75,522,931,0.019297294028908736,382,2838,3710,2583,2963,3,89,2118,ok
+20260903T174058Z,https://wewine.vn/quoc-gia/phap/,mobile,,,,,,,,,,,,,"error: HTTP 500: {
+  ""error"": {
+    ""code"": 500,
+    ""message"": ""Lighthouse returned error: Something went wrong."",
+    ""errors"": [
+      {
+        ""message"": ""Lighthouse returned error: Something went wrong."",
+        ""domain"": ""lighthouse"",
+        ""reason"": ""lighthouseError""
+      }
+    ]
+  }
+}
+"
+20260903T174058Z,https://wewine.vn/quoc-gia/phap/,desktop,64,855,6778,0.0018211654942255988,138,3277,6846,2583,2963,3,89,2118,ok
+20260903T174058Z,https://wewine.vn/michele-chiarlo-montemareto-nizza/,mobile,52,2252,14182,0.0007713999853894982,452,9358,22123,2753,3307,0,217,1956,ok
+20260903T174058Z,https://wewine.vn/michele-chiarlo-montemareto-nizza/,desktop,46,487,3723,0.004822193630183165,682,3440,4564,2583,2963,3,89,2118,ok
+20260903T174058Z,https://samuelw86.sg-host.com/,mobile,,,,,,,,,,,,,"error: HTTP 500: {
+  ""error"": {
+    ""code"": 500,
+    ""message"": ""Lighthouse returned error: Something went wrong."",
+    ""errors"": [
+      {
+        ""message"": ""Lighthouse returned error: Something went wrong."",
+        ""domain"": ""lighthouse"",
+        ""reason"": ""lighthouseError""
+      }
+    ]
+  }
+}
+"
+20260903T174058Z,https://samuelw86.sg-host.com/,desktop,,,,,,,,,,,,,"error: HTTP 500: {
+  ""error"": {
+    ""code"": 500,
+    ""message"": ""Lighthouse returned error: Something went wrong."",
+    ""errors"": [
+      {
+        ""message"": ""Lighthouse returned error: Something went wrong."",
+        ""domain"": ""lighthouse"",
+        ""reason"": ""lighthouseError""
+      }
+    ]
+  }
+}
+"
+20260903T174058Z,https://samuelw86.sg-host.com/cac-vung-ruou-vang-phap-noi-tieng-nhat/,mobile,,,,,,,,,,,,,"error: HTTP 500: {
+  ""error"": {
+    ""code"": 500,
+    ""message"": ""Lighthouse returned error: Something went wrong."",
+    ""errors"": [
+      {
+        ""message"": ""Lighthouse returned error: Something went wrong."",
+        ""domain"": ""lighthouse"",
+        ""reason"": ""lighthouseError""
+      }
+    ]
+  }
+}
+"
+20260903T174058Z,https://samuelw86.sg-host.com/cac-vung-ruou-vang-phap-noi-tieng-nhat/,desktop,92,734,1074,0.0094028017661404,0,2431,1076,,,,,,ok
+20260903T174058Z,https://samuelw86.sg-host.com/quoc-gia/phap/,mobile,68,2538,5238,0.0002056679090944417,0,11618,5253,,,,,,ok
+20260903T174058Z,https://samuelw86.sg-host.com/quoc-gia/phap/,desktop,84,1277,1777,0.0007732842221040338,0,2560,1779,,,,,,ok
+20260903T174058Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,mobile,89,2136,2811,0.0009055289518350399,0,5488,2819,,,,,,ok
+20260903T174058Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,desktop,95,362,602,0.00114456749019499,0,2226,602,,,,,,ok
