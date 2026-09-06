@@ -31198,3 +31198,84 @@ timestamp,url,strategy,performance_score,fcp_ms,lcp_ms,cls,tbt_ms,speed_index_ms
 20260906T054144Z,https://samuelw86.sg-host.com/quoc-gia/phap/,desktop,88,1185,1685,0.0007732842221040338,0,1953,1687,,,,,,ok
 20260906T054144Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,mobile,92,1974,2649,0.0009055289518350399,8,4654,4709,,,,,,ok
 20260906T054144Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,desktop,98,364,602,0.001562511509191087,0,1582,602,,,,,,ok
+20260906T103539Z,https://wewine.vn/,mobile,,,,,,,,,,,,,"error: HTTP 500: {
+  ""error"": {
+    ""code"": 500,
+    ""message"": ""Lighthouse returned error: Something went wrong."",
+    ""errors"": [
+      {
+        ""message"": ""Lighthouse returned error: Something went wrong."",
+        ""domain"": ""lighthouse"",
+        ""reason"": ""lighthouseError""
+      }
+    ]
+  }
+}
+"
+20260906T103539Z,https://wewine.vn/,desktop,36,506,5823,0.007888757551878118,2470,6675,6686,2545,2957,0,83,1977,ok
+20260906T103539Z,https://wewine.vn/cac-vung-ruou-vang-phap-noi-tieng-nhat/,mobile,58,2402,3826,0.02460708544050605,756,10656,19950,2911,3531,1,221,2073,ok
+20260906T103539Z,https://wewine.vn/cac-vung-ruou-vang-phap-noi-tieng-nhat/,desktop,70,470,809,0.01872358181566121,502,3483,3375,2718,3113,4,95,2192,ok
+20260906T103539Z,https://wewine.vn/quoc-gia/phap/,mobile,56,2252,4727,0.0002056679090944417,614,9880,22602,2911,3531,1,221,2073,ok
+20260906T103539Z,https://wewine.vn/quoc-gia/phap/,desktop,54,470,4083,0.03250488968824466,436,2539,4091,2718,3113,4,95,2192,ok
+20260906T103539Z,https://wewine.vn/michele-chiarlo-montemareto-nizza/,mobile,42,2252,32029,0.0007713999853894982,1049,8787,32247,2911,3531,1,221,2073,ok
+20260906T103539Z,https://wewine.vn/michele-chiarlo-montemareto-nizza/,desktop,39,483,5423,0.004816772185616652,1105,3570,5437,2718,3113,4,95,2192,ok
+20260906T103539Z,https://samuelw86.sg-host.com/,mobile,90,1511,2711,0.0002056679090944417,64,6413,2726,,,,,,ok
+20260906T103539Z,https://samuelw86.sg-host.com/,desktop,79,705,715,0.0011115442819951034,272,4373,1129,,,,,,ok
+20260906T103539Z,https://samuelw86.sg-host.com/cac-vung-ruou-vang-phap-noi-tieng-nhat/,mobile,94,1922,2297,0.02460708544050605,0,4556,2305,,,,,,ok
+20260906T103539Z,https://samuelw86.sg-host.com/cac-vung-ruou-vang-phap-noi-tieng-nhat/,desktop,90,786,966,0.0094028017661404,0,3271,968,,,,,,ok
+20260906T103539Z,https://samuelw86.sg-host.com/quoc-gia/phap/,mobile,,,,,,,,,,,,,"error: HTTP 500: {
+  ""error"": {
+    ""code"": 500,
+    ""message"": ""Lighthouse returned error: Something went wrong."",
+    ""errors"": [
+      {
+        ""message"": ""Lighthouse returned error: Something went wrong."",
+        ""domain"": ""lighthouse"",
+        ""reason"": ""lighthouseError""
+      }
+    ]
+  }
+}
+"
+20260906T103539Z,https://samuelw86.sg-host.com/quoc-gia/phap/,desktop,,,,,,,,,,,,,"error: HTTP 500: {
+  ""error"": {
+    ""code"": 500,
+    ""message"": ""Lighthouse returned error: Something went wrong."",
+    ""errors"": [
+      {
+        ""message"": ""Lighthouse returned error: Something went wrong."",
+        ""domain"": ""lighthouse"",
+        ""reason"": ""lighthouseError""
+      }
+    ]
+  }
+}
+"
+20260906T103539Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,mobile,,,,,,,,,,,,,"error: HTTP 500: {
+  ""error"": {
+    ""code"": 500,
+    ""message"": ""Lighthouse returned error: Something went wrong."",
+    ""errors"": [
+      {
+        ""message"": ""Lighthouse returned error: Something went wrong."",
+        ""domain"": ""lighthouse"",
+        ""reason"": ""lighthouseError""
+      }
+    ]
+  }
+}
+"
+20260906T103539Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,desktop,,,,,,,,,,,,,"error: HTTP 500: {
+  ""error"": {
+    ""code"": 500,
+    ""message"": ""Lighthouse returned error: Something went wrong."",
+    ""errors"": [
+      {
+        ""message"": ""Lighthouse returned error: Something went wrong."",
+        ""domain"": ""lighthouse"",
+        ""reason"": ""lighthouseError""
+      }
+    ]
+  }
+}
+"
