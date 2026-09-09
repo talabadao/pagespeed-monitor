@@ -32202,3 +32202,23 @@ timestamp,url,strategy,performance_score,fcp_ms,lcp_ms,cls,tbt_ms,speed_index_ms
 }
 "
 20260908T214311Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,desktop,95,362,602,0.0011449076548767782,0,2249,602,,,,,,ok
+20260908T235747Z,https://wewine.vn/,mobile,34,2252,12050,0.1158781322857658,1392,21550,22160,2534,3141,17,187,1755,ok
+20260908T235747Z,https://wewine.vn/,desktop,38,485,6043,0.010513754195487841,991,6520,6047,2591,3000,0,88,1974,ok
+20260908T235747Z,https://wewine.vn/cac-vung-ruou-vang-phap-noi-tieng-nhat/,mobile,69,2252,3344,0.02460708544050605,545,6880,19289,3071,3645,1,230,2117,ok
+20260908T235747Z,https://wewine.vn/cac-vung-ruou-vang-phap-noi-tieng-nhat/,desktop,72,523,992,0.01872358181566121,401,3752,3761,2765,3181,4,98,2206,ok
+20260908T235747Z,https://wewine.vn/quoc-gia/phap/,mobile,69,2252,3527,0.0002056679090944417,384,12540,22443,3071,3645,1,230,2117,ok
+20260908T235747Z,https://wewine.vn/quoc-gia/phap/,desktop,38,511,5343,0.07285967949458348,1553,3449,5349,2765,3181,4,98,2206,ok
+20260908T235747Z,https://wewine.vn/michele-chiarlo-montemareto-nizza/,mobile,55,2252,22278,0.0007713999853894982,360,10569,23029,3071,3645,1,230,2117,ok
+20260908T235747Z,https://wewine.vn/michele-chiarlo-montemareto-nizza/,desktop,47,489,5043,0.0020631726643901586,640,2449,5051,2765,3181,4,98,2206,ok
+20260908T235747Z,https://samuelw86.sg-host.com/,mobile,92,1512,2637,0.0002056679090944417,0,5452,2645,,,,,,ok
+20260908T235747Z,https://samuelw86.sg-host.com/,desktop,92,362,582,0.0011752172215253286,0,3127,584,,,,,,ok
+20260908T235747Z,https://samuelw86.sg-host.com/cac-vung-ruou-vang-phap-noi-tieng-nhat/,mobile,84,1870,3595,0.02460708544050605,66,5884,4158,,,,,,ok
+20260908T235747Z,https://samuelw86.sg-host.com/cac-vung-ruou-vang-phap-noi-tieng-nhat/,desktop,94,740,940,0.009425479022978986,0,2186,940,,,,,,ok
+20260908T235747Z,https://samuelw86.sg-host.com/quoc-gia/phap/,mobile,,,,,,,,,,,,,"error: HTTP 400: {
+  ""error"": {
+    ""code"": 400,
+    ""message"": ""Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Details: net::ERR_TIMED_OUT)"",
+   "
+20260908T235747Z,https://samuelw86.sg-host.com/quoc-gia/phap/,desktop,64,1334,5034,0.0007735077839438688,0,5430,5096,,,,,,ok
+20260908T235747Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,mobile,80,2568,3168,0.0007713999853894982,0,13633,3183,,,,,,ok
+20260908T235747Z,https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/,desktop,95,362,585,0.0011449076548767782,0,2187,586,,,,,,ok
