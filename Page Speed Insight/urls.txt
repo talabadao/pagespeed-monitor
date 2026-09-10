@@ -1,11 +1,9 @@
 # ── PRODUCTION: wewine.vn ──────────────────────────────────
+# Trang chủ
 https://wewine.vn/
+# Blog
 https://wewine.vn/cac-vung-ruou-vang-phap-noi-tieng-nhat/
+# Danh mục sản phẩm
 https://wewine.vn/quoc-gia/phap/
+# Trang sản phẩm
 https://wewine.vn/michele-chiarlo-montemareto-nizza/
-
-# ── DEMO: samuelw86.sg-host.com ────────────────────────────
-https://samuelw86.sg-host.com/
-https://samuelw86.sg-host.com/cac-vung-ruou-vang-phap-noi-tieng-nhat/
-https://samuelw86.sg-host.com/quoc-gia/phap/
-https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/

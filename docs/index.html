@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PageSpeed — Hosting Comparison</title>
+<title>PageSpeed Monitor — wewine.vn</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
@@ -12,7 +12,6 @@
 --bg:#f5f5f2;--surface:#fff;--border:rgba(0,0,0,0.08);--border2:rgba(0,0,0,0.14);
 --text:#181816;--muted:#6b6b67;
 --we:#185FA5;--we-bg:#E6F1FB;--we-light:#B5D4F4;
---demo:#993C1D;--demo-bg:#FAECE7;--demo-light:#F5C4B3;
 --good:#1d9e75;--good-bg:#e1f5ee;
 --warn:#ba7517;--warn-bg:#faeeda;
 --bad:#e24b4a;--bad-bg:#fcebeb;
@@ -25,7 +24,6 @@ header h1{font-size:15px;font-weight:600}
 .header-badges{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .hbadge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px}
 .hbadge-we{background:var(--we-bg);color:var(--we)}
-.hbadge-demo{background:var(--demo-bg);color:var(--demo)}
 #last-updated{font-size:12px;color:var(--muted)}
 .container{max-width:1120px;margin:0 auto;padding:20px 16px}
 /* TABS */
@@ -34,16 +32,12 @@ header h1{font-size:15px;font-weight:600}
 .tabs button.active{background:var(--text);color:#fff}
 /* SECTION TITLE */
 .sec{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:24px 0 10px}
-/* COMPARISON GRID */
-.cmp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+/* SCORE GRID */
+.cmp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
 .cmp-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
 .cmp-card-title{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding:10px 14px 6px;border-bottom:1px solid var(--border)}
-.cmp-row{display:flex;align-items:center;padding:10px 14px;gap:10px}
-.cmp-row+.cmp-row{border-top:1px solid var(--border)}
-.cmp-site{font-size:11px;font-weight:600;min-width:54px}
-.cmp-site.we{color:var(--we)}
-.cmp-site.demo{color:var(--demo)}
-.big-score{font-size:28px;font-weight:700;line-height:1;min-width:44px}
+.cmp-row{display:flex;align-items:center;padding:12px 14px;gap:10px}
+.big-score{font-size:32px;font-weight:700;line-height:1;min-width:50px}
 .big-score.good{color:var(--good)}
 .big-score.warn{color:var(--warn)}
 .big-score.bad{color:var(--bad)}
@@ -51,8 +45,9 @@ header h1{font-size:15px;font-weight:600}
 .cmp-meta{display:flex;flex-direction:column;gap:2px}
 .cmp-metric{font-size:11px;color:var(--muted)}
 .cmp-metric span{color:var(--text);font-weight:500}
-.winner-badge{font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;background:#e1f5ee;color:var(--good);margin-left:auto;white-space:nowrap}
-.loser-badge{font-size:10px;padding:2px 6px;border-radius:4px;background:#f1efe8;color:var(--muted);margin-left:auto;white-space:nowrap}
+.trend-badge{font-size:11px;font-weight:700;padding:2px 7px;border-radius:4px;margin-left:auto;white-space:nowrap}
+.trend-badge.up{background:var(--good-bg);color:var(--good)}
+.trend-badge.down{background:var(--bad-bg);color:var(--bad)}
 /* STABILITY CARDS */
 .stab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
 .stab-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px}
@@ -62,33 +57,24 @@ header h1{font-size:15px;font-weight:600}
 .stab-row:last-child{border-bottom:none}
 .stab-label{color:var(--muted)}
 .stab-val{font-weight:500}
-/* Formula highlight row */
-.stab-formula{background:var(--bg);border-radius:6px;padding:6px 10px;margin:4px 0;font-size:11px;font-family:monospace;color:var(--muted);border:1px solid var(--border)}
 /* CHARTS */
 .chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 @media(max-width:640px){.chart-grid{grid-template-columns:1fr}}
 .chart-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px}
 .chart-box h3{font-size:13px;font-weight:600;margin-bottom:12px}
-.chart-wrap{position:relative;height:210px}
-.legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
-.legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--muted)}
-.legend-line{width:16px;height:3px;border-radius:2px;display:inline-block}
+.chart-wrap{position:relative;height:230px}
 /* TABLE */
 .tbl-wrap{overflow-x:auto}
 table{width:100%;border-collapse:collapse;background:var(--surface);border-radius:var(--radius);overflow:hidden;border:1px solid var(--border)}
 th{font-size:11px;font-weight:600;color:var(--muted);text-align:left;padding:9px 12px;border-bottom:1px solid var(--border);background:var(--bg);white-space:nowrap}
 td{font-size:12px;padding:8px 12px;border-bottom:1px solid var(--border);white-space:nowrap}
 tr:last-child td{border-bottom:none}
-/* Highlight timeout rows */
 tr.timeout-row td{background:#fff5f5}
 .pill{display:inline-block;padding:2px 7px;border-radius:4px;font-size:11px;font-weight:600}
 .pill.good{background:var(--good-bg);color:var(--good)}
 .pill.warn{background:var(--warn-bg);color:var(--warn)}
 .pill.bad{background:var(--bad-bg);color:var(--bad)}
 .pill.na{background:#f1efe8;color:var(--muted)}
-.site-tag{font-size:10px;font-weight:700;padding:1px 6px;border-radius:3px}
-.site-tag.we{background:var(--we-bg);color:var(--we)}
-.site-tag.demo{background:var(--demo-bg);color:var(--demo)}
 #loading{text-align:center;padding:60px;color:var(--muted)}
 #err-box{text-align:center;padding:40px;color:var(--bad)}
 </style>
@@ -97,14 +83,12 @@ tr.timeout-row td{background:#fff5f5}
 
 <header>
   <div>
-    <h1>PageSpeed — Hosting Comparison</h1>
+    <h1>PageSpeed Monitor — wewine.vn</h1>
     <div id="last-updated" style="font-size:12px;color:var(--muted);margin-top:2px">Đang tải...</div>
   </div>
   <div class="header-badges">
     <span class="hbadge hbadge-we">wewine.vn</span>
-    <span style="font-size:12px;color:var(--muted)">vs</span>
-    <span class="hbadge hbadge-demo">Demo sg-host</span>
-    <span style="font-size:11px;color:var(--muted);margin-left:4px">· cập nhật mỗi giờ</span>
+    <span style="font-size:11px;color:var(--muted);margin-left:4px">· Trang chủ · Blog · Danh mục · Sản phẩm · Mobile &amp; Desktop · cập nhật hàng ngày</span>
   </div>
 </header>
 
@@ -118,7 +102,7 @@ tr.timeout-row td{background:#fff5f5}
       <button onclick="setStrategy('desktop',this)">Desktop</button>
     </div>
 
-    <div class="sec">So sánh điểm số trung bình</div>
+    <div class="sec">Điểm số hiện tại theo trang</div>
     <div class="cmp-grid" id="cmp-grid"></div>
 
     <div class="sec" style="margin-top:28px">Độ ổn định</div>
@@ -129,12 +113,10 @@ tr.timeout-row td{background:#fff5f5}
       <div class="chart-box">
         <h3>Mobile — Score theo thời gian</h3>
         <div class="chart-wrap"><canvas id="chart-mobile" role="img" aria-label="Biểu đồ score mobile"></canvas></div>
-        <div class="legend" id="legend-mobile"></div>
       </div>
       <div class="chart-box">
         <h3>Desktop — Score theo thời gian</h3>
         <div class="chart-wrap"><canvas id="chart-desktop" role="img" aria-label="Biểu đồ score desktop"></canvas></div>
-        <div class="legend" id="legend-desktop"></div>
       </div>
     </div>
 
@@ -142,7 +124,7 @@ tr.timeout-row td{background:#fff5f5}
     <div class="tbl-wrap">
       <table>
         <thead><tr>
-          <th>Thời gian</th><th>Site</th><th>Trang</th><th>Strategy</th>
+          <th>Thời gian</th><th>Trang</th><th>Strategy</th>
           <th>Status</th><th>Score</th><th>LCP</th><th>FCP</th><th>CLS</th><th>TBT</th>
         </tr></thead>
         <tbody id="history-tbody"></tbody>
@@ -155,43 +137,26 @@ tr.timeout-row td{background:#fff5f5}
 <script>
 const CSV_URL = "https://raw.githubusercontent.com/talabadao/pagespeed-monitor/main/Page%20Speed%20Insight/reports/summary.csv";
 
-const WE   = { key:"we",   label:"wewine.vn",   color:"#185FA5", colorLight:"#B5D4F4", domain:"wewine.vn" };
-const DEMO = { key:"demo", label:"Demo sg-host", color:"#993C1D", colorLight:"#F5C4B3", domain:"samuelw86.sg-host.com" };
-
+// ── CÁC TRANG ĐANG THEO DÕI (wewine.vn) ────────────────────────
 const PAGE_TYPES = [
-  { key:"homepage", label:"Trang chủ",
-    we:"https://wewine.vn/",
-    demo:"https://samuelw86.sg-host.com/" },
-  { key:"blog", label:"Blog",
-    we:"https://wewine.vn/cac-vung-ruou-vang-phap-noi-tieng-nhat/",
-    demo:"https://samuelw86.sg-host.com/cac-vung-ruou-vang-phap-noi-tieng-nhat/" },
-  { key:"category", label:"Category",
-    we:"https://wewine.vn/quoc-gia/phap/",
-    demo:"https://samuelw86.sg-host.com/quoc-gia/phap/" },
-  { key:"product", label:"Product",
-    we:"https://wewine.vn/michele-chiarlo-montemareto-nizza/",
-    demo:"https://samuelw86.sg-host.com/michele-chiarlo-montemareto-nizza/" },
+  { key:"homepage", label:"Trang chủ",           url:"https://wewine.vn/",                                       color:"#185FA5" },
+  { key:"blog",     label:"Blog",                 url:"https://wewine.vn/cac-vung-ruou-vang-phap-noi-tieng-nhat/", color:"#2E86DE" },
+  { key:"category", label:"Danh mục sản phẩm",    url:"https://wewine.vn/quoc-gia/phap/",                          color:"#5DADE2" },
+  { key:"product",  label:"Trang sản phẩm",       url:"https://wewine.vn/michele-chiarlo-montemareto-nizza/",     color:"#9DC3E6" },
 ];
 
 // ── CÔNG THỨC ỔN ĐỊNH ────────────────────────────────────────
 // stab = baseStab × uptimeRatio
-// baseStab  = max(0, 100 − σ×2)   ← dao động điểm số
-// uptimeRatio = (total − timeout) / total ← tỉ lệ phản hồi thành công
-// Ý nghĩa: hosting timeout 7% → điểm ổn định cũng giảm 7%
+// baseStab    = avgScore×0.5 + consistency×0.5   (chất lượng + tính nhất quán)
+// consistency = max(0, 100 − σ×2)                (dao động điểm số)
+// uptimeRatio = (total − timeout) / total        (tỉ lệ phản hồi thành công)
 
 let allData = [], currentStrategy = "mobile";
 let chartMobile, chartDesktop;
 
 // ── UTILS ──────────────────────────────────────────────────────
-function siteOf(url) {
-  if (url.includes("wewine.vn")) return "we";
-  if (url.includes("samuelw86"))  return "demo";
-  return null;
-}
-
 function pageTypeOf(url) {
-  const p = PAGE_TYPES.find(pt => pt.we === url || pt.demo === url);
-  return p ? p.key : null;
+  return PAGE_TYPES.find(pt => pt.url === url) || null;
 }
 
 function scCls(s) {
@@ -212,13 +177,6 @@ function tsToVN(ts) {
   return dt.toLocaleString("vi-VN",{timeZone:"Asia/Ho_Chi_Minh",day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"});
 }
 
-function getLatest(strategy) {
-  const ok = allData.filter(r => r.strategy===strategy && r.status==="ok");
-  const map = {};
-  ok.forEach(r => { if (!map[r.url] || r.timestamp > map[r.url].timestamp) map[r.url] = r; });
-  return map;
-}
-
 function stddev(arr) {
   if (!arr.length) return 0;
   const mean = arr.reduce((a,b)=>a+b,0)/arr.length;
@@ -226,12 +184,9 @@ function stddev(arr) {
 }
 
 // ── OUTLIER REMOVAL (lower-only IQR) ─────────────────────────
-// Chỉ loại lower outliers: score thấp bất thường dưới Q1 − 1.5×IQR
+// Chỉ loại lower outliers: score thấp bất thường dưới Q1 − 1.5×IQR,
 // thường do API PageSpeed không load được trang → trả về score rất thấp.
-//
-// KHÔNG loại upper outliers: score cao là hợp lệ (site load nhanh hôm đó).
-// Lý do: wewine có 83% scores tập trung 55–56 nên full IQR sẽ xem tất cả
-// scores 60–97 là "outlier", loại hết → σ≈0 → consistency giả cao 99/100.
+// KHÔNG loại upper outliers vì score cao là hợp lệ (site load nhanh hôm đó).
 function removeOutliers(arr) {
   if (arr.length < 6) return arr;
   const sorted = [...arr].sort((a, b) => a - b);
@@ -243,129 +198,72 @@ function removeOutliers(arr) {
   return arr.filter(v => v >= lo);
 }
 
-// ── COMPARISON CARDS ─────────────────────────────────────────
 function avgOf(rows, field) {
   const vals = rows.map(r => parseFloat(r[field])).filter(v => !isNaN(v) && v > 0);
   return vals.length ? vals.reduce((a,b)=>a+b,0)/vals.length : null;
 }
 
+// ── SCORE GRID (điểm mới nhất theo từng trang) ────────────────
 function renderCmpGrid(strategy) {
   const ok = allData.filter(r => r.strategy===strategy && r.status==="ok");
-  document.getElementById("cmp-grid").innerHTML = PAGE_TYPES.map(pt => {
-    const rWe   = ok.filter(r => r.url===pt.we);
-    const rDemo = ok.filter(r => r.url===pt.demo);
-    const sWe   = avgOf(rWe,   "performance_score");
-    const sDemo = avgOf(rDemo, "performance_score");
-    const lcpWe   = avgOf(rWe,   "lcp_ms");
-    const lcpDemo = avgOf(rDemo, "lcp_ms");
-    const fcpWe   = avgOf(rWe,   "fcp_ms");
-    const fcpDemo = avgOf(rDemo, "fcp_ms");
-    const nWe   = rWe.length;
-    const nDemo = rDemo.length;
-    const weWins   = sWe!==null && sDemo!==null && sWe   > sDemo;
-    const demoWins = sWe!==null && sDemo!==null && sDemo > sWe;
 
-    const row = (site, s, lcp, fcp, n, wins) => `
-      <div class="cmp-row">
-        <div class="cmp-site ${site.key}">${site.label}</div>
-        <div class="big-score ${scCls(s)}">${s!==null ? Math.round(s) : "—"}</div>
-        <div class="cmp-meta">
-          <div class="cmp-metric">LCP <span>${fmt(lcp)}</span></div>
-          <div class="cmp-metric">FCP <span>${fmt(fcp)}</span></div>
-          <div class="cmp-metric" style="color:var(--muted);font-size:10px">${n} mẫu</div>
-        </div>
-        ${wins
-          ? '<span class="winner-badge">Tốt hơn</span>'
-          : (s!==null && !wins && (weWins||demoWins) ? '<span class="loser-badge">Chậm hơn</span>' : '')}
-      </div>`;
+  document.getElementById("cmp-grid").innerHTML = PAGE_TYPES.map(pt => {
+    const rows = ok.filter(r => r.url === pt.url).sort((a,b)=> a.timestamp.localeCompare(b.timestamp));
+    const latestRow   = rows[rows.length-1];
+    const latestScore = latestRow && latestRow.performance_score !== "" ? +latestRow.performance_score : null;
+    const avgScore = avgOf(rows, "performance_score");
+    const avgLcp   = avgOf(rows, "lcp_ms");
+    const avgFcp   = avgOf(rows, "fcp_ms");
+    const n        = rows.length;
+
+    let trendHtml = "";
+    if (rows.length >= 2 && latestScore !== null) {
+      const prevRow = rows[rows.length-2];
+      const prevScore = prevRow.performance_score !== "" ? +prevRow.performance_score : null;
+      if (prevScore !== null) {
+        const diff = Math.round(latestScore - prevScore);
+        if (diff !== 0) {
+          const up = diff > 0;
+          trendHtml = `<span class="trend-badge ${up?'up':'down'}">${up?'▲':'▼'} ${Math.abs(diff)}</span>`;
+        }
+      }
+    }
 
     return `<div class="cmp-card">
       <div class="cmp-card-title">${pt.label}</div>
-      ${row(WE,   sWe,   lcpWe,   fcpWe,   nWe,   weWins)}
-      ${row(DEMO, sDemo, lcpDemo, fcpDemo, nDemo, demoWins)}
+      <div class="cmp-row">
+        <div class="big-score ${scCls(latestScore)}">${latestScore!==null ? Math.round(latestScore) : "—"}</div>
+        <div class="cmp-meta">
+          <div class="cmp-metric">LCP TB <span>${fmt(avgLcp)}</span></div>
+          <div class="cmp-metric">FCP TB <span>${fmt(avgFcp)}</span></div>
+          <div class="cmp-metric" style="color:var(--muted);font-size:10px">TB ${avgScore!==null?Math.round(avgScore):"—"} điểm · ${n} lần đo</div>
+        </div>
+        ${trendHtml}
+      </div>
     </div>`;
   }).join("");
 }
 
-// ── SHARED TIMEOUT DETECTION ──────────────────────────────────
-// Nếu cùng (timestamp + page_type) mà CẢ 2 hosting đều timeout
-// → nhiều khả năng do API PageSpeed bị lỗi, không phải lỗi hosting
-// → đánh dấu vào sharedSet, loại khỏi uptimeRatio của cả hai bên.
-function buildSharedTimeoutSet(stratData) {
-  const shared = new Set(); // key: "${timestamp}_${url}"
-
-  const timeouts = stratData.filter(r => r.status !== "ok");
-
-  for (const to of timeouts) {
-    const site = siteOf(to.url);
-    if (!site) continue;
-
-    // Tìm page type tương ứng
-    const pt = PAGE_TYPES.find(p => p[site] === to.url);
-    if (!pt) continue;
-
-    // URL phía hosting còn lại cho cùng page type
-    const otherSite = site === "we" ? "demo" : "we";
-    const otherUrl  = pt[otherSite];
-
-    // Kiểm tra hosting kia có cũng timeout tại cùng timestamp không
-    const bothTimedOut = stratData.some(r =>
-      r.url       === otherUrl  &&
-      r.timestamp === to.timestamp &&
-      r.status    !== "ok"
-    );
-
-    if (bothTimedOut) {
-      shared.add(`${to.timestamp}_${to.url}`);
-    }
-  }
-
-  return shared;
-}
-
-// ── STABILITY ─────────────────────────────────────────────────
-// Công thức composite:
-//   filteredScores = scores sau khi loại ngoại lệ IQR
-//   avgScore       = trung bình filteredScores          (đo chất lượng)
-//   consistency    = max(0, 100 − σ×2) trên filtered   (đo tính ổn định)
-//   uptimeRatio    = (total − netTimeout) / total       (đo độ sẵn sàng)
-//
-//   stab = round( (avgScore×0.5 + consistency×0.5) × uptimeRatio )
-//
-// Lý do: công thức cũ chỉ đo dao động (σ), nghĩa là hosting chậm
-// một cách ổn định cũng được điểm cao. Công thức mới đưa chất lượng
-// điểm trung bình vào ngang tầm với tính nhất quán.
+// ── STABILITY (độ ổn định theo từng trang) ───────────────────
 function renderStability(strategy) {
   const stratData = allData.filter(r => r.strategy === strategy);
-  const ok        = stratData.filter(r => r.status === "ok" && r.performance_score !== "");
-  const sites     = [WE, DEMO];
 
-  const sharedSet = buildSharedTimeoutSet(stratData);
+  document.getElementById("stab-grid").innerHTML = PAGE_TYPES.map(pt => {
+    const rows    = stratData.filter(r => r.url === pt.url);
+    const okRows  = rows.filter(r => r.status === "ok" && r.performance_score !== "");
+    const rawScores = okRows.map(r => +r.performance_score).filter(s => !isNaN(s));
 
-  document.getElementById("stab-grid").innerHTML = sites.map(site => {
-
-    const allSiteRows = stratData.filter(r => siteOf(r.url) === site.key);
-    const okRows      = ok.filter(r => siteOf(r.url) === site.key);
-    const rawScores   = okRows.map(r => +r.performance_score).filter(s => !isNaN(s));
-
-    // ── Lọc ngoại lệ IQR ──
     const filteredScores = removeOutliers(rawScores);
     const outlierCount   = rawScores.length - filteredScores.length;
 
-    // ── Phân loại timeout ──
-    const allTimeouts    = allSiteRows.filter(r => r.status !== "ok");
-    const sharedTimeouts = allTimeouts.filter(r =>  sharedSet.has(`${r.timestamp}_${r.url}`));
-    const netTimeouts    = allTimeouts.filter(r => !sharedSet.has(`${r.timestamp}_${r.url}`));
-    const totalCount      = allSiteRows.length;
-    const allTimeoutCount = allTimeouts.length;
-    const sharedCount     = sharedTimeouts.length;
-    const netCount        = netTimeouts.length;
-    const uptimeRatio     = totalCount > 0 ? (totalCount - netCount) / totalCount : 1;
-    const uptimePct       = (uptimeRatio * 100).toFixed(1);
+    const totalCount   = rows.length;
+    const timeoutCount = rows.filter(r => r.status !== "ok").length;
+    const uptimeRatio  = totalCount > 0 ? (totalCount - timeoutCount) / totalCount : 1;
+    const uptimePct    = (uptimeRatio * 100).toFixed(1);
 
-    if (!filteredScores.length && totalCount === 0) {
+    if (!totalCount) {
       return `<div class="stab-card">
-        <h4><span class="stab-dot" style="background:${site.color}"></span>${site.label}</h4>
+        <h4><span class="stab-dot" style="background:${pt.color}"></span>${pt.label}</h4>
         <p style="color:var(--muted);font-size:12px">Chưa có dữ liệu</p>
       </div>`;
     }
@@ -375,40 +273,14 @@ function renderStability(strategy) {
     const mx  = filteredScores.length ? Math.max(...filteredScores) : null;
     const sd  = filteredScores.length ? stddev(filteredScores).toFixed(1) : "0";
 
-    // ── Composite formula ──
-    const avgScore        = avg !== null ? +avg : 0;
-    const consistencyScore = Math.round(Math.max(0, 100 - +sd * 2));
-    const baseComposite   = Math.round(avgScore * 0.5 + consistencyScore * 0.5);
-    const stab            = Math.round(baseComposite * uptimeRatio);
+    const avgScore          = avg !== null ? +avg : 0;
+    const consistencyScore  = Math.round(Math.max(0, 100 - +sd * 2));
+    const baseComposite     = Math.round(avgScore * 0.5 + consistencyScore * 0.5);
+    const stab              = Math.round(baseComposite * uptimeRatio);
 
     const stabColor   = stab >= 80 ? "var(--good)" : stab >= 60 ? "var(--warn)" : "var(--bad)";
-    const netTOColor  = netCount  === 0 ? "var(--good)" : netCount <= 5 ? "var(--warn)" : "var(--bad)";
+    const toColor     = timeoutCount === 0 ? "var(--good)" : timeoutCount <= 2 ? "var(--warn)" : "var(--bad)";
     const uptimeColor = +uptimePct >= 99 ? "var(--good)" : +uptimePct >= 95 ? "var(--warn)" : "var(--bad)";
-
-    // ── Breakdown theo từng trang ──
-    const byPage = PAGE_TYPES.map(pt => {
-      const ptUrl      = pt[site.key];
-      const ptOk       = okRows.filter(r => r.url === ptUrl);
-      const ptAll      = allSiteRows.filter(r => r.url === ptUrl);
-      const ptRaw      = ptOk.map(r => +r.performance_score).filter(s => !isNaN(s));
-      const ptFiltered = removeOutliers(ptRaw);
-      const ptNetTO    = ptAll.filter(r => r.status !== "ok" && !sharedSet.has(`${r.timestamp}_${r.url}`)).length;
-      const ptSharedTO = ptAll.filter(r => r.status !== "ok" &&  sharedSet.has(`${r.timestamp}_${r.url}`)).length;
-      const ptAvg      = ptFiltered.length ? (ptFiltered.reduce((a,b)=>a+b)/ptFiltered.length).toFixed(0) : null;
-      const ptSd       = ptFiltered.length > 1 ? stddev(ptFiltered).toFixed(1) : "—";
-      const ptOutliers = ptRaw.length - ptFiltered.length;
-
-      const ptBadge = [
-        ptNetTO    > 0 ? `<span style="color:var(--bad);font-size:10px;margin-left:6px;font-weight:600">⚠ ${ptNetTO}× timeout</span>` : '',
-        ptSharedTO > 0 ? `<span style="color:var(--muted);font-size:10px;margin-left:4px">(+${ptSharedTO} API)</span>` : '',
-        ptOutliers > 0 ? `<span style="color:var(--muted);font-size:10px;margin-left:4px">[−${ptOutliers} ngoại lệ]</span>` : '',
-      ].join('');
-
-      return `<div class="stab-row">
-        <span class="stab-label">${pt.label}</span>
-        <span class="stab-val">${ptAvg !== null ? `Avg ${ptAvg} ±${ptSd}` : "—"}${ptBadge}</span>
-      </div>`;
-    }).join("");
 
     const outlierNote = outlierCount > 0
       ? `<span style="font-size:10px;color:var(--muted);font-weight:400"> (đã loại ${outlierCount} ngoại lệ)</span>`
@@ -416,8 +288,8 @@ function renderStability(strategy) {
 
     return `<div class="stab-card">
       <h4>
-        <span class="stab-dot" style="background:${site.color}"></span>
-        ${site.label}
+        <span class="stab-dot" style="background:${pt.color}"></span>
+        ${pt.label}
         <span style="margin-left:auto;font-size:14px;font-weight:700;color:${stabColor}">Ổn định ${stab}/100</span>
       </h4>
 
@@ -432,30 +304,14 @@ function renderStability(strategy) {
       </div>
 
       <div class="stab-row">
-        <span class="stab-label" style="color:${netTOColor};font-weight:600">Timeout hosting</span>
-        <span class="stab-val" style="color:${netTOColor};font-weight:600">
-          ${netCount} lần
-          <span style="font-size:10px;color:var(--muted);font-weight:400"> → tính vào uptime</span>
-        </span>
+        <span class="stab-label" style="color:${toColor};font-weight:600">Timeout / lỗi</span>
+        <span class="stab-val" style="color:${toColor};font-weight:600">${timeoutCount} / ${totalCount} lần chạy</span>
       </div>
 
-      <div class="stab-row">
-        <span class="stab-label" style="color:var(--muted)">Timeout API (bỏ qua)</span>
-        <span class="stab-val" style="color:var(--muted)">
-          ${sharedCount} lần
-          <span style="font-size:10px;font-weight:400"> cả 2 host cùng lỗi · tổng ${allTimeoutCount}</span>
-        </span>
-      </div>
-
-      <div class="stab-row">
-        <span class="stab-label">Uptime (net)</span>
+      <div class="stab-row" style="border-bottom:none">
+        <span class="stab-label">Uptime</span>
         <span class="stab-val" style="color:${uptimeColor};font-weight:600">${uptimePct}%</span>
       </div>
-
-      <div class="stab-row" style="border-bottom:none;padding-bottom:2px;margin-top:4px">
-        <span class="stab-label" style="font-weight:600">Theo trang</span>
-      </div>
-      ${byPage}
     </div>`;
   }).join("");
 }
@@ -463,43 +319,34 @@ function renderStability(strategy) {
 // ── TREND CHARTS ──────────────────────────────────────────────
 function buildDatasets(strategy) {
   const ok = allData.filter(r => r.strategy===strategy && r.status==="ok");
-  const timestamps = [...new Set(ok.map(r=>r.timestamp))].sort().slice(-48);
+  const timestamps = [...new Set(ok.map(r=>r.timestamp))].sort().slice(-60);
   const labels = timestamps.map(tsToVN);
 
-  const colors = {
-    we_homepage:"#185FA5", we_blog:"#378ADD", we_category:"#85B7EB", we_product:"#B5D4F4",
-    demo_homepage:"#993C1D", demo_blog:"#D85A30", demo_category:"#F0997B", demo_product:"#F5C4B3",
-  };
+  const datasets = PAGE_TYPES.map(pt => {
+    const data = timestamps.map(ts => {
+      const r = ok.find(x=>x.url===pt.url && x.timestamp===ts);
+      return r && r.performance_score!=="" ? +r.performance_score : null;
+    });
+    return {
+      label: pt.label,
+      data, borderColor: pt.color,
+      backgroundColor: pt.color+"22",
+      borderWidth: 2,
+      pointRadius: 2, tension: 0.3, spanGaps: true,
+    };
+  }).filter(ds => ds.data.some(d=>d!==null));
 
-  const datasets = [];
-  for (const site of [WE, DEMO]) {
-    for (const pt of PAGE_TYPES) {
-      const url = pt[site.key];
-      const data = timestamps.map(ts => {
-        const r = ok.find(x=>x.url===url && x.timestamp===ts);
-        return r && r.performance_score!=="" ? +r.performance_score : null;
-      });
-      if (data.some(d=>d!==null)) {
-        const colorKey = `${site.key}_${pt.key}`;
-        datasets.push({
-          label: `${site.label} — ${pt.label}`,
-          data, borderColor: colors[colorKey]||site.color,
-          backgroundColor: (colors[colorKey]||site.color)+"22",
-          borderWidth: site.key==="we" ? 2 : 1.5,
-          borderDash: site.key==="demo" ? [4,3] : [],
-          pointRadius: 2, tension: 0.3, spanGaps: true,
-        });
-      }
-    }
-  }
   return { labels, datasets };
 }
 
 function renderCharts() {
-  const opts = strat => ({
+  const opts = () => ({
     responsive:true, maintainAspectRatio:false,
     interaction:{mode:"index",intersect:false},
-    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${Math.round(c.parsed.y)}`}}},
+    plugins:{
+      legend:{display:true, position:"bottom", labels:{boxWidth:10,font:{size:10}}},
+      tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${Math.round(c.parsed.y)}`}}
+    },
     scales:{
       x:{ticks:{maxTicksLimit:8,maxRotation:0,font:{size:10}},grid:{color:"rgba(0,0,0,0.04)"}},
       y:{min:0,max:100,ticks:{font:{size:10}},grid:{color:"rgba(0,0,0,0.04)"}}
@@ -512,22 +359,15 @@ function renderCharts() {
   const mData = buildDatasets("mobile");
   const dData = buildDatasets("desktop");
 
-  chartMobile  = new Chart(document.getElementById("chart-mobile"),  {type:"line",data:mData, options:opts("mobile")});
-  chartDesktop = new Chart(document.getElementById("chart-desktop"), {type:"line",data:dData, options:opts("desktop")});
-
-  const legendHtml = `
-    <div class="legend-item"><div class="legend-line" style="background:#185FA5"></div>wewine.vn (liền)</div>
-    <div class="legend-item"><div class="legend-line" style="background:#993C1D;border-top:2px dashed #993C1D;height:0"></div>Demo sg-host (nét đứt)</div>`;
-  document.getElementById("legend-mobile").innerHTML  = legendHtml;
-  document.getElementById("legend-desktop").innerHTML = legendHtml;
+  chartMobile  = new Chart(document.getElementById("chart-mobile"),  {type:"line",data:mData, options:opts()});
+  chartDesktop = new Chart(document.getElementById("chart-desktop"), {type:"line",data:dData, options:opts()});
 }
 
 // ── HISTORY TABLE ─────────────────────────────────────────────
 function renderHistory(strategy) {
   const rows = [...allData].filter(r => r.strategy === strategy).reverse().slice(0, 30);
   document.getElementById("history-tbody").innerHTML = rows.map(r => {
-    const site      = siteOf(r.url);
-    const pt        = PAGE_TYPES.find(p => p[site] === r.url);
+    const pt        = pageTypeOf(r.url);
     const s         = r.performance_score !== "" ? +r.performance_score : null;
     const isTimeout = r.status !== "ok";
     const statusHtml = r.status === "ok"
@@ -536,7 +376,6 @@ function renderHistory(strategy) {
 
     return `<tr${isTimeout ? ' class="timeout-row"' : ''}>
       <td>${tsToVN(r.timestamp)}</td>
-      <td><span class="site-tag ${site}">${site==="we"?"wewine.vn":"sg-host"}</span></td>
       <td>${pt?.label||"—"}</td>
       <td>${r.strategy}</td>
       <td>${statusHtml}</td>
@@ -568,8 +407,12 @@ function setStrategy(s, btn) {
 Papa.parse(CSV_URL, {
   download:true, header:true, skipEmptyLines:true,
   complete(results) {
-    // Lọc bỏ rows lỗi sandbox (403) — các lỗi khác (timeout, error...) giữ lại để tính stability
-    allData = results.data.filter(r => r.status && !r.status.includes("403") && r.timestamp?.startsWith("2"));
+    // Lọc bỏ rows lỗi sandbox (403) và chỉ giữ dữ liệu của wewine.vn
+    allData = results.data.filter(r =>
+      r.status && !r.status.includes("403") &&
+      r.timestamp?.startsWith("2") &&
+      r.url && r.url.includes("wewine.vn")
+    );
 
     document.getElementById("loading").style.display = "none";
     if (!allData.length) {
@@ -579,7 +422,7 @@ Papa.parse(CSV_URL, {
     }
 
     document.getElementById("content").style.display = "block";
-    const last = allData.filter(r=>siteOf(r.url)==="we").pop() || allData[allData.length-1];
+    const last = allData[allData.length-1];
     document.getElementById("last-updated").textContent = "Cập nhật lần cuối: " + tsToVN(last.timestamp) + " (GMT+7)";
     render();
   },
