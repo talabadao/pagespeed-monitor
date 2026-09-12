@@ -1810,3 +1810,50 @@ timestamp,url,strategy,performance_score,fcp_ms,lcp_ms,cls,tbt_ms,speed_index_ms
 20260912T010415Z,https://wewine.vn/quoc-gia/phap/,desktop,47,477,4243,0.03254376411723983,545,3962,4247,2829,3270,4,103,2252,ok
 20260912T010415Z,https://wewine.vn/michele-chiarlo-montemareto-nizza/,mobile,48,2252,21903,0.0007713999853894982,609,12454,23593,3133,3686,2,236,2135,ok
 20260912T010415Z,https://wewine.vn/michele-chiarlo-montemareto-nizza/,desktop,62,522,4183,0.0009834750313749525,219,4391,4189,2829,3270,4,103,2252,ok
+20260912T053842Z,https://wewine.vn/,mobile,43,2252,13900,0.21536656863242323,391,16203,21737,2568,3248,18,210,1837,ok
+20260912T053842Z,https://wewine.vn/,desktop,37,498,5803,0.007888757551878118,1573,5821,5811,2621,3067,0,101,2037,ok
+20260912T053842Z,https://wewine.vn/cac-vung-ruou-vang-phap-noi-tieng-nhat/,mobile,37,2252,2627,0.543134872417983,1700,9310,19168,3177,3792,2,240,2175,ok
+20260912T053842Z,https://wewine.vn/cac-vung-ruou-vang-phap-noi-tieng-nhat/,desktop,,,,,,,,,,,,,"error: HTTP 500: {
+  ""error"": {
+    ""code"": 500,
+    ""message"": ""Lighthouse returned error: Something went wrong."",
+    ""errors"": [
+      {
+        ""message"": ""Lighthouse returned error: Something went wrong."",
+        ""domain"": ""lighthouse"",
+        ""reason"": ""lighthouseError""
+      }
+    ]
+  }
+}
+"
+20260912T053842Z,https://wewine.vn/quoc-gia/phap/,mobile,,,,,,,,,,,,,"error: HTTP 500: {
+  ""error"": {
+    ""code"": 500,
+    ""message"": ""Lighthouse returned error: Something went wrong."",
+    ""errors"": [
+      {
+        ""message"": ""Lighthouse returned error: Something went wrong."",
+        ""domain"": ""lighthouse"",
+        ""reason"": ""lighthouseError""
+      }
+    ]
+  }
+}
+"
+20260912T053842Z,https://wewine.vn/quoc-gia/phap/,desktop,62,469,3061,0.032647306063721224,316,3350,3706,2850,3290,4,105,2258,ok
+20260912T053842Z,https://wewine.vn/michele-chiarlo-montemareto-nizza/,mobile,40,2252,19578,0.0007713999853894982,1099,11511,21483,3177,3792,2,240,2175,ok
+20260912T053842Z,https://wewine.vn/michele-chiarlo-montemareto-nizza/,desktop,,,,,,,,,,,,,"error: HTTP 500: {
+  ""error"": {
+    ""code"": 500,
+    ""message"": ""Lighthouse returned error: Something went wrong."",
+    ""errors"": [
+      {
+        ""message"": ""Lighthouse returned error: Something went wrong."",
+        ""domain"": ""lighthouse"",
+        ""reason"": ""lighthouseError""
+      }
+    ]
+  }
+}
+"
