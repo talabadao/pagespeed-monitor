@@ -2965,3 +2965,37 @@ timestamp,url,strategy,performance_score,fcp_ms,lcp_ms,cls,tbt_ms,speed_index_ms
 20260923T152649Z,https://wewine.vn/quoc-gia/phap/,desktop,61,1260,1678,0.03158224323614395,463,4187,5250,2932,3366,5,104,2334,ok
 20260923T152649Z,https://wewine.vn/michele-chiarlo-montemareto-nizza/,mobile,16,2252,31503,0.5240241125883283,1514,9940,31728,3207,3809,1,229,2304,ok
 20260923T152649Z,https://wewine.vn/michele-chiarlo-montemareto-nizza/,desktop,39,502,5823,0.0020631726643901586,989,3934,5857,2932,3366,5,104,2334,ok
+20260923T193513Z,https://wewine.vn/,mobile,35,2252,21228,0.20237062219915514,750,22164,23509,2744,3329,19,229,1919,ok
+20260923T193513Z,https://wewine.vn/,desktop,37,502,5843,0.004261273093424394,1307,5714,5847,2752,3131,1,122,1969,ok
+20260923T193513Z,https://wewine.vn/cac-vung-ruou-vang-phap-noi-tieng-nhat/,mobile,61,2252,2627,0.02460708544050605,1389,8432,19844,3207,3809,1,229,2304,ok
+20260923T193513Z,https://wewine.vn/cac-vung-ruou-vang-phap-noi-tieng-nhat/,desktop,71,479,835,0.019775714445976714,665,1877,3719,2932,3366,5,104,2334,ok
+20260923T193513Z,https://wewine.vn/quoc-gia/phap/,mobile,,,,,,,,,,,,,"error: HTTP 500: {
+  ""error"": {
+    ""code"": 500,
+    ""message"": ""Lighthouse returned error: Something went wrong."",
+    ""errors"": [
+      {
+        ""message"": ""Lighthouse returned error: Something went wrong."",
+        ""domain"": ""lighthouse"",
+        ""reason"": ""lighthouseError""
+      }
+    ]
+  }
+}
+"
+20260923T193513Z,https://wewine.vn/quoc-gia/phap/,desktop,,,,,,,,,,,,,"error: HTTP 500: {
+  ""error"": {
+    ""code"": 500,
+    ""message"": ""Lighthouse returned error: Something went wrong."",
+    ""errors"": [
+      {
+        ""message"": ""Lighthouse returned error: Something went wrong."",
+        ""domain"": ""lighthouse"",
+        ""reason"": ""lighthouseError""
+      }
+    ]
+  }
+}
+"
+20260923T193513Z,https://wewine.vn/michele-chiarlo-montemareto-nizza/,mobile,33,2252,27228,0.0009055289518350399,8941,11777,27431,3207,3809,1,229,2304,ok
+20260923T193513Z,https://wewine.vn/michele-chiarlo-montemareto-nizza/,desktop,65,482,4083,0.0007440475148118962,205,3428,4091,2932,3366,5,104,2334,ok
