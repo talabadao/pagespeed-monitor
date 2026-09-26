@@ -3397,3 +3397,11 @@ timestamp,url,strategy,performance_score,fcp_ms,lcp_ms,cls,tbt_ms,speed_index_ms
 20260926T110448Z,https://wewine.vn/quoc-gia/phap/,desktop,99,699,699,0,0,699,699,2949,3370,4,117,2342,ok
 20260926T110448Z,https://wewine.vn/michele-chiarlo-montemareto-nizza/,mobile,47,2252,30229,0.0009055289518350399,851,6197,30416,3364,3933,1,235,2354,ok
 20260926T110448Z,https://wewine.vn/michele-chiarlo-montemareto-nizza/,desktop,99,731,731,0,0,731,731,2949,3370,4,117,2342,ok
+20260926T145826Z,https://wewine.vn/,mobile,28,2252,7125,0.19554511013138676,1664,14774,21895,2812,3334,19,239,1958,ok
+20260926T145826Z,https://wewine.vn/,desktop,99,698,698,0,0,698,698,2857,3273,1,141,2076,ok
+20260926T145826Z,https://wewine.vn/cac-vung-ruou-vang-phap-noi-tieng-nhat/,mobile,50,2252,7757,0,818,5007,19825,3364,3933,1,235,2354,ok
+20260926T145826Z,https://wewine.vn/cac-vung-ruou-vang-phap-noi-tieng-nhat/,desktop,99,697,697,0,0,697,697,2949,3370,4,117,2342,ok
+20260926T145826Z,https://wewine.vn/quoc-gia/phap/,mobile,58,2532,5007,0.1562002637515918,344,6441,25682,3364,3933,1,235,2354,ok
+20260926T145826Z,https://wewine.vn/quoc-gia/phap/,desktop,99,697,697,0,0,697,697,2949,3370,4,117,2342,ok
+20260926T145826Z,https://wewine.vn/michele-chiarlo-montemareto-nizza/,mobile,21,2252,29703,0.4327348441057462,1699,6359,29898,3364,3933,1,235,2354,ok
+20260926T145826Z,https://wewine.vn/michele-chiarlo-montemareto-nizza/,desktop,99,727,727,0,0,727,727,2949,3370,4,117,2342,ok
