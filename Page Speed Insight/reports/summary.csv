@@ -4559,3 +4559,17 @@ timestamp,url,strategy,performance_score,fcp_ms,lcp_ms,cls,tbt_ms,speed_index_ms
 20261025T235821Z,https://wewine.vn/quoc-gia/phap/,desktop,71,1247,1518,0.14888178868280438,197,4558,6330,3214,3687,6,125,2504,ok
 20261025T235821Z,https://wewine.vn/michele-chiarlo-montemareto-nizza/,mobile,44,2252,31653,0.0009055289518350399,843,9012,31893,3420,3827,1,219,2609,ok
 20261025T235821Z,https://wewine.vn/michele-chiarlo-montemareto-nizza/,desktop,46,482,5263,0.0020631726643901586,558,3077,5285,3214,3687,6,125,2504,ok
+20261026T035736Z,https://wewine.vn/,mobile,,,,,,,,,,,,,"error: HTTP 400: {
+  ""error"": {
+    ""code"": 400,
+    ""message"": ""Lighthouse returned error: NO_FCP. The page did not paint any content. Please ensure you keep the browser window in the foreground during the load and try again. (NO_FCP)"",
+    ""errors"": [
+      {
+        ""message"": ""Lighthouse returned error: NO_FCP. "
+20261026T035736Z,https://wewine.vn/,desktop,50,562,7343,0.009982626329787234,357,9007,7429,3476,4195,1,137,2493,ok
+20261026T035736Z,https://wewine.vn/cac-vung-ruou-vang-phap-noi-tieng-nhat/,mobile,81,2402,2627,0.004877442412398661,217,9496,16799,3420,3827,1,219,2609,ok
+20261026T035736Z,https://wewine.vn/cac-vung-ruou-vang-phap-noi-tieng-nhat/,desktop,86,522,926,0.015949375638443803,173,3421,3613,3214,3687,6,125,2504,ok
+20261026T035736Z,https://wewine.vn/quoc-gia/phap/,mobile,63,3006,5406,0.0002056679090944417,158,12235,27353,3420,3827,1,219,2609,ok
+20261026T035736Z,https://wewine.vn/quoc-gia/phap/,desktop,61,1234,1987,0.20461239643708523,231,4488,6156,3214,3687,6,125,2504,ok
+20261026T035736Z,https://wewine.vn/michele-chiarlo-montemareto-nizza/,mobile,49,2252,21528,0.0007713999853894982,533,13610,23983,3420,3827,1,219,2609,ok
+20261026T035736Z,https://wewine.vn/michele-chiarlo-montemareto-nizza/,desktop,55,482,3743,0.0016629613942153343,380,3693,4271,3214,3687,6,125,2504,ok
